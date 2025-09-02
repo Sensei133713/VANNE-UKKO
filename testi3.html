@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tornion Vannefixaus - Ammattitaitoista rengas- ja autonhuoltoa</title>
+    <meta name="description" content="Tornion alueen ammattitaitoinen rengas- ja autonhuolto. Rengastyöt, vanteiden korjaukset, 4-pyörämittaukset ja ilmastointihuollot.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#3b82f6',
+                        accent: '#ef4444',
+                        dark: '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .flag {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-size: cover;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .fi {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzAwM+I9ImQyMTYiIGQ9Ik0zNiAyN2MwIDIuMjA5LTEuNzkxIDQtNCA0SDRjLTIuMjA5IDAtNC0xLjc5MS00LTRWOWMwLTIuMjA5IDEuNzkxLTQgNC00aDI4YzIuMjA5IDAgNCAxLjc5MSA0IDR2MTh6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDIxaDEydjZIMTJ6bTAtOWgxMnY2SDEyeiIvPjxwYXRoIGZpbGw9IiIwMDVCIiBkPSJNMTIgMTJoMTJ2LTNIMTJ6bTAgMThoMTJ2LTNIMTJ6Ii8+PC9zdmc+');
+        }
+        .se {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzAwNEE1OCIgZD0iTTM2IDI3YzAgMi4yMDktMS43OTEgNC00IDRINGMtMi4yMDkgMC00LTEuNzkxLTQtNFY5YzAtMi4yMDkgMS43OTEtNCA0LTRoMjhjMi4yMDkgMCA0IDEuNzkxIDQgNHYxOHoiLz48cGF0aCBmaWxsPSIjRkZDIiBkPSJNMTUuMzI0IDIxVjE1aDUuMzUzdjZIMjF2LTloLTZ2OWguMzI0em05LTloLTN2OWgzdi05eiIvPjxwYXRoIGZpbGw9IiNGRkMiIGQ9Ik0xOCAyMXYtNmg2di0zSDE4VjloLTN2M0g5djNoNnY2aDN6Ii8+PC9zdmc+');
+        }
+        .map-container {
+            height: 300px;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Language switcher -->
+    <div class="fixed top-4 right-4 z-50 flex items-center space-x-2 bg-white rounded-full shadow-md py-1 px-3">
+        <div class="flag fi active" id="lang-fi" onclick="changeLanguage('fi')"></div>
+        <div class="flag se" id="lang-se" onclick="changeLanguage('se')"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <div class="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-white font-bold">TV</div>
+                        <span class="ml-2 font-semibold text-xl" data-lang="company-name">Tornion Vannefixaus</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-gray-700 hover:text-primary transition" data-lang="nav-services">Palvelut</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-primary transition" data-lang="nav-pricing">Hinnasto</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-primary transition" data-lang="nav-testimonials">Arviot</a>
+                    <a href="#faq" class="text-gray-700 hover:text-primary transition" data-lang="nav-faq">UKK</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition" data-lang="nav-contact">Yhteystiedot</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="nav-services">Palvelut</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="nav-pricing">Hinnasto</a>
+                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="nav-testimonials">Arviot</a>
+                <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="nav-faq">UKK</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" data-lang="nav-contact">Yhteystiedot</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4" data-lang="hero-title">Ammattitaitoista rengas- ja autonhuoltoa Tornion alueella</h1>
+                <p class="text-xl mb-8" data-lang="hero-subtitle">Laadukkaat palvelut edulliseen hintaan. Suomen ja Ruotsin rajalla.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="tel:+358407571541" class="bg-accent hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition flex items-center justify-center">
+                        <i class="fas fa-phone mr-2"></i> <span data-lang="hero-call">Soita nyt</span>
+                    </a>
+                    <a href="https://wa.me/358407571541" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <div class="absolute -inset-4 bg-blue-400 rounded-2xl rotate-3 opacity-50"></div>
+                    <img src="https://images.unsplash.com/photo-1603712610494-7e281e7efd2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Rengas- ja autonhuolto" class="relative rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-lang="services-title">Palvelumme</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-tire"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang="service-1-title">Rengastyöt</h3>
+                    <p class="text-gray-600" data-lang="service-1-desc">Vaihdot, tasapainotukset, paikkaukset ja renkaiden kunnossapito ammattitaidolla.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang="service-2-title">Vanteiden korjaukset</h3>
+                    <p class="text-gray-600" data-lang="service-2-desc">Vanteiden oikaisut, hitsaukset ja muut korjaukset asiantuntevasti.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang="service-3-title">4-pyörämittaukset</h3>
+                    <p class="text-gray-600" data-lang="service-3-desc">Tarkat 4-pyörämittaukset ja suuntaukset turvallisuutesi takaamiseksi.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang="service-4-title">Ilmastointihuollot</h3>
+                    <p class="text-gray-600" data-lang="service-4-desc">Ammattimainen ilmastointihuolto R134a & R1234yf jäähdytysaineilla.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang="service-5-title">Rengas- ja vannemyynti</h3>
+                    <p class="text-gray-600" data-lang="service-5-desc">Laadukkaat renkaat ja vanteet kilpailukykyiseen hintaan.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" data-lang="service-6-title">Autonkorjaukset ja huollot</h3>
+                    <p class="text-gray-600" data-lang="service-6-desc">Kattavat autonkorjaus- ja huoltopalvelut kaikille automerkeille.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-lang="pricing-title">Esimerkkihinnat</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4" data-lang="price-1-title">Rengasvaihto</h3>
+                    <p class="text-3xl font-bold text-primary mb-4">15 €</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span data-lang="price-1-item1">Sisältää tasapainotuksen</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span data-lang="price-1-item2">Vanhojen renkaiden huolto</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4" data-lang="price-2-title">4-pyörämittaus</h3>
+                    <p class="text-3xl font-bold text-primary mb-4">80 €</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span data-lang="price-2-item1">Tarkat mittaukset</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span data-lang="price-2-item2">Säätöjen tekeminen</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4" data-lang="price-3-title">Ilmastointihuolto</h3>
+                    <p class="text-3xl font-bold text-primary mb-4">89 €</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span data-lang="price-3-item1">Jäähdytysaineen vaihto</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span data-lang="price-3-item2">Paineen tarkistus</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <p class="text-gray-600" data-lang="pricing-note">* Hinnat ovat suuntaa antavia. Tarkka hinta riippuu ajoneuvosta ja työn laajuudesta.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-lang="testimonials-title">Asiakkaidemme arvioita</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4" data-lang="testimonial-1">"Nopea ja ammattitaitoinen palvelu. Renkaiden vaihto sujui moitteetta ja edulliseen hintaan. Suosittelen!"</p>
+                    <p class="font-semibold">- Mika V.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4" data-lang="testimonial-2">"Vanteiden oikaisu tehtiin nopeasti ja laadukkaasti. Loistava palvelu ja ystävällinen henkilökunta."</p>
+                    <p class="font-semibold">- Anna L.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4" data-lang="testimonial-3">"Auto huollettu täydellisesti. Ilmastointi toimii nyt erinomaisesti. Kiitos asiantuntevasta palvelusta!"</p>
+                    <p class="font-semibold">- Jussi K.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-lang="faq-title">Usein Kysytyt Kysymykset</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full p-4 text-left font-semibold flex justify-between items-center accordion-btn">
+                        <span data-lang="faq-1-question">Kuinka usein renkaat pitäisi vaihtaa?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-4 border-t text-gray-600" data-lang="faq-1-answer">
+                            Rengasvaihtojakso riippuu ajoneuvon käytöstä ja renkaiden kunnosta. Yleisesti ottaen kesärenkaat kannattaa vaihtaa talvirenkaisiin, kun lämpötila pysyy jatkuvasti alle +7°C. Talvirenkaat vaihdetaan takaisin kesärenkaisiin, kun lämpötila pysyy yli +7°C.
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full p-4 text-left font-semibold flex justify-between items-center accordion-btn">
+                        <span data-lang="faq-2-question">Miten usein 4-pyörämittaus tulisi tehdä?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-4 border-t text-gray-600" data-lang="faq-2-answer">
+                            Suuntaus tulisi tarkistaa vähintään kerran vuodessa tai aina, kun huomaat auton vetävän sivuun, rattivärinän tai epätasaisen renkaiden kulutuksen. Myös iskujen jälkeen, kuten suuren kuopan tai kolarin jälkeen, suuntaus on syytä tarkistaa.
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full p-4 text-left font-semibold flex justify-between items-center accordion-btn">
+                        <span data-lang="faq-3-question">Tarvitsenko ajanvarauksen palveluihin?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-4 border-t text-gray-600" data-lang="faq-3-answer">
+                            Suosittelemme aina ajanvarausta varmistaaksemme, että voimme palvella sinut mahdollisimman nopeasti. Voit soittaa, lähettää WhatsApp-viestin tai tulla paikan päälle sopimaan ajan.
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="w-full p-4 text-left font-semibold flex justify-between items-center accordion-btn">
+                        <span data-lang="faq-4-question">Mitä maksaa vanteen oikaisu?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-4 border-t text-gray-600" data-lang="faq-4-answer">
+                            Vanteen oikaisun hinta riippuu vanteen koosta, materiaalista ja vaurion laajuudesta. Hinnat alkavat yleensä noin 50 eurosta. Tarkemman hinta-arvion saat tuomalla vanteen tarkastettavaksi.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-lang="contact-title">Yhteystiedot</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+                        <h3 class="text-xl font-semibold mb-4" data-lang="contact-info">Tiedot</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <p class="font-semibold" data-lang="contact-phone">Puhelin & WhatsApp</p>
+                                    <a href="tel:+358407571541" class="text-gray-600 hover:text-primary">+358 40 757 1541</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <p class="font-semibold" data-lang="contact-email">Sähköposti</p>
+                                    <a href="mailto:tornionvannefixaus@gmail.com" class="text-gray-600 hover:text-primary">tornionvannefixaus@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <p class="font-semibold" data-lang="contact-hours">Aukioloajat</p>
+                                    <p class="text-gray-600" data-lang="contact-hours-desc">Sopimuksen mukaan</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <p class="font-semibold" data-lang="contact-location">Sijainti</p>
+                                    <p class="text-gray-600" data-lang="contact-location-desc">Tornion alue, Suomen ja Ruotsin rajan läheisyys</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="map-container rounded-lg shadow-md overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12690.48838400552!2d24.13624796828656!3d65.84713567588515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46802d945a6f128d%3A0xa501a859a57b300!2sTornio!5e0!3m2!1sfi!2sfi!4v1683634334958!5m2!1sfi!2sfi" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-xl font-semibold" data-lang="company-name">Tornion Vannefixaus</p>
+                    <p class="text-gray-400" data-lang="footer-tagline">Ammattitaitoista rengas- ja autonhuoltoa</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="tel:+358407571541" class="h-10 w-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://wa.me/358407571541" class="h-10 w-10 rounded-full bg-green-500 flex items-center justify-center hover:bg-green-600 transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:tornionvannefixaus@gmail.com" class="h-10 w-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; <span data-lang="copyright">2023 Tornion Vannefixaus. Kaikki oikeudet pidätetään.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile bottom navigation -->
+    <div class="mobile-bottom-nav md:hidden bg-white py-3">
+        <div class="flex justify-around items-center">
+            <a href="tel:+358407571541" class="flex flex-col items-center text-primary">
+                <i class="fas fa-phone text-lg"></i>
+                <span class="text-xs mt-1" data-lang="mobile-call">Soita</span>
+            </a>
+            <a href="https://wa.me/358407571541" class="flex flex-col items-center text-green-500">
+                <i class="fab fa-whatsapp text-lg"></i>
+                <span class="text-xs mt-1">WhatsApp</span>
+            </a>
+            <a href="#contact" class="flex flex-col items-center text-gray-600">
+                <i class="fas fa-map-marker-alt text-lg"></i>
+                <span class="text-xs mt-1" data-lang="mobile-map">Kartta</span>
+            </a>
+            <a href="mailto:tornionvannefixaus@gmail.com" class="flex flex-col items-center text-gray-600">
+                <i class="fas fa-envelope text-lg"></i>
+                <span class="text-xs mt-1" data-lang="mobile-email">Sähköposti</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- JSON-LD Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "Tornion Vannefixaus",
+      "image": "",
+      "@id": "",
+      "url": "",
+      "telephone": "+358407571541",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tornio",
+        "addressCountry": "FI"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 65.8471,
+        "longitude": 24.1362
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      "sameAs": []
+    }
+    </script>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Language switching functionality
+        const translations = {
+            fi: {
+                "company-name": "Tornion Vannefixaus",
+                "nav-services": "Palvelut",
+                "nav-pricing": "Hinnasto",
+                "nav-testimonials": "Arviot",
+                "nav-faq": "UKK",
+                "nav-contact": "Yhteystiedot",
+                "hero-title": "Ammattitaitoista rengas- ja autonhuoltoa Tornion alueella",
+                "hero-subtitle": "Laadukkaat palvelut edulliseen hintaan. Suomen ja Ruotsin rajalla.",
+                "hero-call": "Soita nyt",
+                "services-title": "Palvelumme",
+                "service-1-title": "Rengastyöt",
+                "service-1-desc": "Vaihdot, tasapainotukset, paikkaukset ja renkaiden kunnossapito ammattitaidolla.",
+                "service-2-title": "Vanteiden korjaukset",
+                "service-2-desc": "Vanteiden oikaisut, hitsaukset ja muut korjaukset asiantuntevasti.",
+                "service-3-title": "4-pyörämittaukset",
+                "service-3-desc": "Tarkat 4-pyörämittaukset ja suuntaukset turvallisuutesi takaamiseksi.",
+                "service-4-title": "Ilmastointihuollot",
+                "service-4-desc": "Ammattimainen ilmastointihuolto R134a & R1234yf jäähdytysaineilla.",
+                "service-5-title": "Rengas- ja vannemyynti",
+                "service-5-desc": "Laadukkaat renkaat ja vanteet kilpailukykyiseen hintaan.",
+                "service-6-title": "Autonkorjaukset ja huollot",
+                "service-6-desc": "Kattavat autonkorjaus- ja huoltopalvelut kaikille automerkeille.",
+                "pricing-title": "Esimerkkihinnat",
+                "price-1-title": "Rengasvaihto",
+                "price-1-item1": "Sisältää tasapainotuksen",
+                "price-1-item2": "Vanhojen renkaiden huolto",
+                "price-2-title": "4-pyörämittaus",
+                "price-2-item1": "Tarkat mittaukset",
+                "price-2-item2": "Säätöjen tekeminen",
+                "price-3-title": "Ilmastointihuolto",
+                "price-3-item1": "Jäähdytysaineen vaihto",
+                "price-3-item2": "Paineen tarkistus",
+                "pricing-note": "* Hinnat ovat suuntaa antavia. Tarkka hinta riippuu ajoneuvosta ja työn laajuudesta.",
+                "testimonials-title": "Asiakkaidemme arvioita",
+                "testimonial-1": "\"Nopea ja ammattitaitoinen palvelu. Renkaiden vaihto sujui moitteetta ja edulliseen hintaan. Suosittelen!\"",
+                "testimonial-2": "\"Vanteiden oikaisu tehtiin nopeasti ja laadukkaasti. Loistava palvelu ja ystävällinen henkilökunta.\"",
+                "testimonial-3": "\"Auto huollettu täydellisesti. Ilmastointi toimii nyt erinomaisesti. Kiitos asiantuntevasta palvelusta!\"",
+                "faq-title": "Usein Kysytyt Kysymykset",
+                "faq-1-question": "Kuinka usein renkaat pitäisi vaihtaa?",
+                "faq-1-answer": "Rengasvaihtojakso riippuu ajoneuvon käytöstä ja renkaiden kunnosta. Yleisesti ottaen kesärenkaat kannattaa vaihtaa talvirenkaisiin, kun lämpötila pysyy jatkuvasti alle +7°C. Talvirenkaat vaihdetaan takaisin kesärenkaisiin, kun lämpötila pysyy yli +7°C.",
+                "faq-2-question": "Miten usein 4-pyörämittaus tulisi tehdä?",
+                "faq-2-answer": "Suuntaus tulisi tarkistaa vähintään kerran vuodessa tai aina, kun huomaat auton vetävän sivuun, rattivärinän tai epätasaisen renkaiden kulutuksen. Myös iskujen jälkeen, kuten suuren kuopan tai kolarin jälkeen, suuntaus on syytä tarkistaa.",
+                "faq-3-question": "Tarvitsenko ajanvarauksen palveluihin?",
+                "faq-3-answer": "Suosittelemme aina ajanvarausta varmistaaksemme, että voimme palvella sinut mahdollisimman nopeasti. Voit soittaa, lähettää WhatsApp-viestin tai tulla paikan päälle sopimaan ajan.",
+                "faq-4-question": "Mitä maksaa vanteen oikaisu?",
+                "faq-4-answer": "Vanteen oikaisun hinta riippuu vanteen koosta, materiaalista ja vaurion laajuudesta. Hinnat alkavat yleensä noin 50 eurosta. Tarkemman hinta-arvion saat tuomalla vanteen tarkastettavaksi.",
+                "contact-title": "Yhteystiedot",
+                "contact-info": "Tiedot",
+                "contact-phone": "Puhelin & WhatsApp",
+                "contact-email": "Sähköposti",
+                "contact-hours": "Aukioloajat",
+                "contact-hours-desc": "Sopimuksen mukaan",
+                "contact-location": "Sijainti",
+                "contact-location-desc": "Tornion alue, Suomen ja Ruotsin rajan läheisyys",
+                "footer-tagline": "Ammattitaitoista rengas- ja autonhuoltoa",
+                "copyright": "2023 Tornion Vannefixaus. Kaikki oikeudet pidätetään.",
+                "mobile-call": "Soita",
+                "mobile-map": "Kartta",
+                "mobile-email": "Sähköposti"
+            },
+            se: {
+                "company-name": "Tornio Fälgreparation",
+                "nav-services": "Tjänster",
+                "nav-pricing": "Priser",
+                "nav-testimonials": "Omdömen",
+                "nav-faq": "FAQ",
+                "nav-contact": "Kontakt",
+                "hero-title": "Professionella däck- och bilservicetjänster i Torneåområdet",
+                "hero-subtitle": "Kvalitetstjänster till ett förmånligt pris. Vid gränsen mellan Finland och Sverige.",
+                "hero-call": "Ring nu",
+                "services-title": "Våra tjänster",
+                "service-1-title": "Däckarbeten",
+                "service-1-desc": "Byte, balansering, lagning och underhåll av däck med expertis.",
+                "service-2-title": "Fälgreparationer",
+                "service-2-desc": "Rättning av fälgar, svetsning och andra reparationer av erfarna tekniker.",
+                "service-3-title": "4-hjulsmätningar",
+                "service-3-desc": "Noggranna 4-hjulsmätningar och inställningar för din säkerhet.",
+                "service-4-title": "Klimatiseringsservice",
+                "service-4-desc": "Professionell klimatiseringsservice med R134a & R1234yf kylmedel.",
+                "service-5-title": "Däck- och fälgförsäljning",
+                "service-5-desc": "Kvalitetsdäck och fälgar till konkurrenskraftiga priser.",
+                "service-6-title": "Bilreparationer och service",
+                "service-6-desc": "Omfattande bilreparationer och service för alla bilmärken.",
+                "pricing-title": "Exempelpriser",
+                "price-1-title": "Däckbyte",
+                "price-1-item1": "Inkluderar balansering",
+                "price-1-item2": "Underhåll av gamla däck",
+                "price-2-title": "4-hjulsmätning",
+                "price-2-item1": "Noggranna mätningar",
+                "price-2-item2": "Justeringar",
+                "price-3-title": "Klimatiseringsservice",
+                "price-3-item1": "Byte av kylmedel",
+                "price-3-item2": "Tryckkontroll",
+                "pricing-note": "* Priserna är ungefärliga. Det exakta priset beror på fordonet och arbetets omfattning.",
+                "testimonials-title": "Kundomdömen",
+                "testimonial-1": "\"Snabb och professionell service. Däckbytet gick felfritt och till ett förmånligt pris. Rekommenderas!\"",
+                "testimonial-2": "\"Fälgrättning gjordes snabbt och kvalitativt. Utmärkt service och vänlig personal.\"",
+                "testimonial-3": "\"Bilen servades perfekt. Luftkonditioneringen fungerar nu utmärkt. Tack för den kunniga servicen!\"",
+                "faq-title": "Vanliga Frågor",
+                "faq-1-question": "Hur ofta ska däck bytas?",
+                "faq-1-answer": "Däckbytesintervallet beror på fordonets användning och däckens skick. Generellt sett bör somdardäck bytas till vinterdäck när temperaturen håller sig stadigt under +7°C. Vinterdäck byts tillbaka till somdardäck när temperaturen håller sig över +7°C.",
+                "faq-2-question": "Hur ofta bör 4-hjulsmätning göras?",
+                "faq-2-answer": "Inställningen bör kontrolleras minst en gång per år eller när du märker att bilen drar åt sidan, rattvibrationer eller ojämnt däckslitage. Även efter stötar, som en stor grop eller krock, bör inställningen kontrolleras.",
+                "faq-3-question": "Behöver jag boka tid för tjänsterna?",
+                "faq-3-answer": "Vi rekommenderar alltid tidbokning för att säkerställa att vi kan betjäna dig så snabbt som möjligt. Du kan ringa, skicka ett WhatsApp-meddelande eller komma till platsen för att boka en tid.",
+                "faq-4-question": "Vad kostar det att rätta en fälg?",
+                "faq-4-answer": "Priset för fälgrättning beror på fälgens storlek, material och omfattningen av skadan. Priserna börjar vanligtvis från cirka 50 euro. Du får en mer exakt prisuppskattning genom att ta med fälgen för inspektion.",
+                "contact-title": "Kontakt",
+                "contact-info": "Information",
+                "contact-phone": "Telefon & WhatsApp",
+                "contact-email": "E-post",
+                "contact-hours": "Öppettider",
+                "contact-hours-desc": "Enligt överenskommelse",
+                "contact-location": "Plats",
+                "contact-location-desc": "Torneåområdet, nära gränsen mellan Finland och Sverige",
+                "footer-tagline": "Professionella däck- och bilservicetjänster",
+                "copyright": "2023 Tornio Fälgreparation. Alla rättigheter förbehållna.",
+                "mobile-call": "Ring",
+                "mobile-map": "Karta",
+                "mobile-email": "E-post"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update active language indicator
+            document.getElementById('lang-fi').classList.toggle('active', lang === 'fi');
+            document.getElementById('lang-se').classList.toggle('active', lang === 'se');
+            
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

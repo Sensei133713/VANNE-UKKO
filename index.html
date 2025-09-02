@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kotirengas – Rengastyöt, vanteiden oikaisut & hitsaukset, 4-pyöräsuuntaus, ilmastointihuollot</title>
+  <meta name="description" content="Paikallinen rengas- ja huoltoliike kotipajalla – nopeat rengastyöt, vanteen oikaisut/hitsaukset, 4 pyörän mittaus & suuntaus, ilmastointihuollot (R134a & R1234yf), vikakoodien luku, autonkorjaukset ja -huollot. Helppo ajanvaraus puhelimella tai WhatsAppilla." />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kotirengas – renkaat ja huollot" />
+  <meta property="og:description" content="Moderni, helppo ja nopea. Rengastyöt, vanteet, suuntaus, ilmastointi, auton huollot." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://esimerkki.fi/" />
+  <meta property="og:image" content="https://esimerkki.fi/og-image.jpg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+    /* Safe area for iOS sticky bar */
+    .safe-bottom { padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem); }
+  </style>
+  <script>
+    // Tailwind config (optional custom colors)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0efff',
+              200: '#b9dbff',
+              300: '#8ec4ff',
+              400: '#66adff',
+              500: '#3b8cff',
+              600: '#1f6fff',
+              700: '#1356ea',
+              800: '#1044b7',
+              900: '#0e3894'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- JSON-LD LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Kotirengas",
+    "image": "https://esimerkki.fi/og-image.jpg",
+    "description": "Rengastyöt, vanteen oikaisut ja hitsaukset, 4-pyöräsuuntaus, ilmastointihuollot (R134a & R1234yf), autonkorjaukset ja vikakoodien luku.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Tallitie 1",
+      "addressLocality": "Kaupunki",
+      "postalCode": "00100",
+      "addressCountry": "FI"
+    },
+    "telephone": "+358 40 123 4567",
+    "openingHours": [
+      "Mo-Fr 09:00-18:00",
+      "Sa 10:00-14:00"
+    ],
+    "url": "https://esimerkki.fi/",
+    "priceRange": "€€",
+    "sameAs": [
+      "https://www.facebook.com/",
+      "https://www.instagram.com/"
+    ]
+  }
+  </script>
+</head>
+<body class="antialiased text-slate-800">
+  <!-- Mobile sticky action bar -->
+  <div class="fixed inset-x-0 bottom-0 z-50 md:hidden bg-white/90 backdrop-blur border-t border-slate-200 safe-bottom">
+    <div class="mx-auto max-w-3xl px-4 py-2 grid grid-cols-3 gap-2 text-sm font-medium">
+      <a href="tel:+358401234567" class="flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-3 py-2">
+        <!-- Phone icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72 12.66 12.66 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.22a2 2 0 0 1 2.11-.45 12.66 12.66 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Soita
+      </a>
+      <a href="https://wa.me/358401234567" class="flex items-center justify-center gap-2 rounded-xl bg-brand-600 text-white px-3 py-2">
+        <!-- WhatsApp icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.62-6.003C.122 5.281 5.403 0 12.057 0c3.178 0 6.167 1.24 8.413 3.488a11.82 11.82 0 0 1 3.49 8.41c-.003 6.654-5.284 11.935-11.938 11.935a11.9 11.9 0 0 1-6.002-1.62L.057 24zM6.6 20.013c1.676.995 3.276 1.591 5.392 1.593 5.448.003 9.886-4.431 9.889-9.878.002-5.466-4.415-9.89-9.881-9.893-5.447-.003-9.886 4.431-9.889 9.878 0 2.225.651 3.891 1.746 5.457l-.999 3.648 3.742-.805zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.148-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.214 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.718 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp
+      </a>
+      <a href="#yhteystiedot" class="flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-3 py-2">
+        <!-- Pin icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Ajo-ohje
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-white font-bold">KR</span>
+        <div class="leading-tight">
+          <div class="font-extrabold text-lg">Tornion Vannefixaus</div>
+          <div class="text-xs text-slate-500">Rengas & huolto</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#palvelut" class="hover:text-brand-700">Palvelut</a>
+        <a href="#hinnat" class="hover:text-brand-700">Hinnat</a>
+        <a href="#yhteystiedot" class="hover:text-brand-700">Yhteystiedot</a>
+        <a href="#ukk" class="hover:text-brand-700">UKK</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://wa.me/358401234567" class="rounded-xl px-4 py-2 bg-brand-600 text-white font-semibold hover:bg-brand-700">Varaa WhatsAppissa</a>
+        <a href="tel:+358401234567" class="rounded-xl px-4 py-2 border border-slate-300 font-semibold">Soita</a>
+      </div>
+      <button aria-label="Avaa valikko" class="md:hidden rounded-xl border border-slate-300 p-2" onclick="document.getElementById('mobileNav').classList.toggle('hidden')">
+        <!-- Menu icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <!-- Mobile nav -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 gap-3 text-sm">
+        <a href="#palvelut" class="rounded-xl border border-slate-200 px-3 py-2" onclick="this.closest('#mobileNav').classList.add('hidden')">Palvelut</a>
+        <a href="#hinnat" class="rounded-xl border border-slate-200 px-3 py-2" onclick="this.closest('#mobileNav').classList.add('hidden')">Hinnat</a>
+        <a href="#yhteystiedot" class="rounded-xl border border-slate-200 px-3 py-2" onclick="this.closest('#mobileNav').classList.add('hidden')">Yhteystiedot</a>
+        <a href="#ukk" class="rounded-xl border border-slate-200 px-3 py-2" onclick="this.closest('#mobileNav').classList.add('hidden')">UKK</a>
+        <a href="https://wa.me/358401234567" class="col-span-2 rounded-xl bg-brand-600 text-white px-3 py-2 text-center font-semibold">Varaa WhatsAppissa</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 opacity-95"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="text-white">
+          <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Rengastyöt ja huollot nopeasti – kotipajalta, joustavasti</h1>
+          <p class="mt-4 text-white/90 text-lg">Suuri kysyntä ei hidasta meitä. Teemme renkaat, vanteet, suuntaukset ja ilmastointihuollot ammattitaidolla. Mobiiliystävällinen ajanvaraus – ota yhteyttä vaikka heti.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://wa.me/358401234567" class="rounded-xl bg-white text-brand-700 px-5 py-3 font-semibold">Varaa WhatsAppissa</a>
+            <a href="tel:+358401234567" class="rounded-xl bg-white/10 text-white ring-1 ring-white/40 px-5 py-3 font-semibold">Soita nyt</a>
+          </div>
+          <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-white/90">
+            <li class="flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span> Nopeat ajat</li>
+            <li class="flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span> Reilu hinnoittelu</li>
+            <li class="flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span> Takuu työlle</li>
+            <li class="flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span> Mobiilioptimoitu palvelu</li>
+          </ul>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-2xl bg-white/10 ring-1 ring-white/20 overflow-hidden">
+            <!-- Placeholder image area; swap to your photo -->
+            <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1600&auto=format&fit=crop" alt="Rengastyö kotipajalla" class="h-full w-full object-cover" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="palvelut" class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Palvelut</h2>
+        <p class="mt-2 text-slate-600">Rengastyöt ja paljon muuta – kaikki saman katon alla.</p>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service card template -->
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">Rengastyöt</h3>
+          <p class="mt-1 text-sm text-slate-600">Vaihdot, tasapainotukset, paikkaukset. Henkilö- ja pakettiautot.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">Vanteen oikaisut</h3>
+          <p class="mt-1 text-sm text-slate-600">Kieroutuneiden vanteiden suoristus ammattikalustolla.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">Vanteen hitsaukset</h3>
+          <p class="mt-1 text-sm text-slate-600">Haljenneiden alumiinivanteiden tarkat hitsaukset.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">4 pyörän mittaus & suuntaus</h3>
+          <p class="mt-1 text-sm text-slate-600">Ajaminen suoraksi – säästää renkaita ja polttoainetta.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">Ilmastointihuollot R134a & R1234yf</h3>
+          <p class="mt-1 text-sm text-slate-600">Täyttö, vuototesti ja desinfiointi.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">Rengas- & vannemyynti</h3>
+          <p class="mt-1 text-sm text-slate-600">Laadukkaat merkit nopeasti – myös tilauksesta.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">Auton korjaukset & huollot</h3>
+          <p class="mt-1 text-sm text-slate-600">Öljynvaihdot, jarrut, alustatyöt, katsastuskorjaukset.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">Alumiinihitsaukset</h3>
+          <p class="mt-1 text-sm text-slate-600">TIG/MIG – vanteet ja muut alumiinikomponentit.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-5 hover:shadow-md transition">
+          <h3 class="font-bold text-lg">Vikakoodien luku & kuittaus</h3>
+          <p class="mt-1 text-sm text-slate-600">Diagnostiikka monimerkkitestereillä.</p>
+        </article>
+      </div>
+
+      <!-- CTA banner -->
+      <div class="mt-10 rounded-2xl bg-slate-50 border border-slate-200 p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 class="font-bold text-lg">Tarvitsetko nopean ajan?</h3>
+          <p class="text-sm text-slate-600">Usein samalle tai seuraavalle päivälle – kysy heti.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://wa.me/358401234567" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-semibold">WhatsApp</a>
+          <a href="tel:+358401234567" class="rounded-xl border border-slate-300 px-4 py-2 font-semibold">Soita</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / highlights -->
+  <section id="hinnat" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Esimerkkihinnat</h2>
+        <p class="mt-2 text-slate-600">Selkeät hinnat – lopullinen hinta vahvistetaan ennen työn aloitusta.</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <h3 class="font-bold">Rengastyöt (henkilöauto)</h3>
+          <ul class="mt-3 text-sm text-slate-700 space-y-2">
+            <li>Rengastyö + tasapainotus (4kpl): <span class="font-semibold">alk. 60 €</span></li>
+            <li>Rengashotelli (kausi): <span class="font-semibold">alk. 80 €</span></li>
+            <li>Paikkaus: <span class="font-semibold">alk. 25 €</span></li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6">
+          <h3 class="font-bold">Suuntaus & ilmastointi</h3>
+          <ul class="mt-3 text-sm text-slate-700 space-y-2">
+            <li>4-pyöräsuuntaus: <span class="font-semibold">alk. 120 €</span></li>
+            <li>Ilmastointihuolto R134a: <span class="font-semibold">alk. 75 €</span></li>
+            <li>Ilmastointihuolto R1234yf: <span class="font-semibold">alk. 120 €</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-6 text-xs text-slate-500">Hinnat esimerkinomaisia ja voivat muuttua. Kysy tarkka tarjous WhatsAppissa.</p>
+    </div>
+  </section>
+
+  <!-- Reviews / social proof -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Miksi asiakkaat valitsevat meidät</h2>
+        <p class="mt-2 text-slate-600">Nopea palvelu, ystävällinen kohtaaminen ja ammattitaito.</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-3 gap-6 text-sm">
+        <figure class="rounded-2xl bg-white border border-slate-200 p-6">
+          <blockquote>“Todella nopea ja osaava palvelu. Rengas paikattu ja matka jatkui heti.”</blockquote>
+          <figcaption class="mt-3 text-slate-500">Mikko, asiakas</figcaption>
+        </figure>
+        <figure class="rounded-2xl bg-white border border-slate-200 p-6">
+          <blockquote>“Vanne oikaistiin ja tasapainotus tehtiin huolella. Ei enää tärinää.”</blockquote>
+          <figcaption class="mt-3 text-slate-500">Sara, asiakas</figcaption>
+        </figure>
+        <figure class="rounded-2xl bg-white border border-slate-200 p-6">
+          <blockquote>“Helppo ajanvaraus WhatsAppilla ja reilu hinnoittelu. Suosittelen!”</blockquote>
+          <figcaption class="mt-3 text-slate-500">Antti, asiakas</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="ukk" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Usein kysytyt kysymykset</h2>
+        <p class="mt-2 text-slate-600">Jos et löydä vastausta, kysy WhatsAppissa.</p>
+      </div>
+      <div class="mt-8 space-y-4">
+        <!-- FAQ item -->
+        <details class="group rounded-2xl border border-slate-200 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold">Miten ajan voi varata?
+            <span class="ml-4 transition group-open:rotate-180">▾</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">Nopeimmin WhatsAppilla tai soittamalla. Vahvistamme tarkan ajan ja työn sisällön.</p>
+        </details>
+        <details class="group rounded-2xl border border-slate-200 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold">Missä sijaitsette?
+            <span class="ml-4 transition group-open:rotate-180">▾</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">Toimimme kotipajalta isosta tallista. Osoite ja ajo-ohjeet alla – pihassa hyvin tilaa kääntyä ja odottaa.</p>
+        </details>
+        <details class="group rounded-2xl border border-slate-200 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold">Onko takuu?
+            <span class="ml-4 transition group-open:rotate-180">▾</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">Kyllä. Työlle myönnetään takuu. Kerromme siitä työn aloituksen yhteydessä.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="yhteystiedot" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold">Yhteystiedot</h2>
+          <div class="mt-4 space-y-3 text-sm">
+            <p><span class="font-semibold">Tornion Vannefixaus</span><br/>Harrinkuja 43, 95500 Tornio</p>
+            <p>Puh: <a href="tel:+358401234567" class="text-brand-700 font-semibold">+358 40 757 1541</a></p>
+            <p>WhatsApp: <a href="https://wa.me/358401234567" class="text-brand-700 font-semibold">Lähetä viesti</a></p>
+            <p>Sähköposti: <a href="mailto:info@esimerkki.fi" class="text-brand-700 font-semibold">info@esimerkki.fi</a></p>
+            <p>Aukiolo: Ma–Pe 09–18, La 10–14 (Sopimuksen mukaan myös iltaisin)</p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://wa.me/358401234567" class="rounded-xl bg-brand-600 text-white px-4 py-2 font-semibold">Varaa WhatsAppissa</a>
+            <a href="tel:+358401234567" class="rounded-xl border border-slate-300 px-4 py-2 font-semibold">Soita</a>
+            <a href="https://maps.google.com/?q=Tallitie%201%2000100%20Kaupunki" class="rounded-xl border border-slate-300 px-4 py-2 font-semibold">Ajo-ohje</a>
+          </div>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-slate-200">
+            <!-- Replace with your own embedded map -->
+            <iframe title="Kartta" src="https://www.google.com/maps?q=Helsinki&output=embed" class="w-full h-80" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <p class="mt-3 text-xs text-slate-500">Huom! Käynnit vain ajanvarauksella. Pihassa on hyvin tilaa ja helppo kääntyä peräkärryn kanssa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-600">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <p>© <span id="year"></span> Kotirengas. Kaikki oikeudet pidätetään.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#palvelut" class="hover:text-slate-900">Palvelut</a>
+          <a href="#hinnat" class="hover:text-slate-900">Hinnat</a>
+          <a href="#yhteystiedot" class="hover:text-slate-900">Yhteystiedot</a>
+          <a href="#ukk" class="hover:text-slate-900">UKK</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

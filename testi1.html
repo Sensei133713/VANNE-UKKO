@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tornion Vannefixaus - Rengas- ja autopalvelut Torniossa</title>
+    <meta name="description" content="Tornion Vannefixaus tarjoaa laadukkaita rengas- ja autopalveluita Tornion alueella. Rengastyöt, vanteiden korjaukset, ilmastointihuollot ja paljon muuta. Ota yhteyttä!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Tornion Vannefixaus",
+        "telephone": "+358 40 757 1541",
+        "email": "tornionvannefixaus@gmail.com",
+        "openingHours": "Mo-Su",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tornio",
+            "addressRegion": "Lappi",
+            "postalCode": "95400",
+            "addressCountry": "FI"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 65.848,
+            "longitude": 24.146
+        },
+        "url": "https://www.tornionvannefixaus.fi"
+    }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white fixed w-full top-0 z-10 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold" data-text="name">Tornion Vannefixaus</h1>
+            <nav class="hidden md:flex space-x-4">
+                <a href="#palvelut" class="hover:underline" data-text="services">Palvelut</a>
+                <a href="#hinnat" class="hover:underline" data-text="prices">Esimerkkihinnat</a>
+                <a href="#arviot" class="hover:underline" data-text="reviews">Asiakasarviot</a>
+                <a href="#ukk" class="hover:underline" data-text="faq">UKK</a>
+                <a href="#yhteystiedot" class="hover:underline" data-text="contact">Yhteystiedot</a>
+            </nav>
+            <div class="flex items-center space-x-2">
+                <button id="lang-fi" class="text-lg">🇫🇮</button>
+                <button id="lang-sv" class="text-lg">🇸🇪</button>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-2xl">&#9776;</button>
+        </div>
+        <nav id="mobile-menu" class="hidden md:hidden bg-blue-700 px-4 py-2">
+            <a href="#palvelut" class="block py-2 hover:underline" data-text="services">Palvelut</a>
+            <a href="#hinnat" class="block py-2 hover:underline" data-text="prices">Esimerkkihinnat</a>
+            <a href="#arviot" class="block py-2 hover:underline" data-text="reviews">Asiakasarviot</a>
+            <a href="#ukk" class="block py-2 hover:underline" data-text="faq">UKK</a>
+            <a href="#yhteystiedot" class="block py-2 hover:underline" data-text="contact">Yhteystiedot</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-20 bg-cover bg-center h-96 flex items-center justify-center text-center text-white" style="background-image: url('https://via.placeholder.com/1920x1080?text=Rengasliike');">
+        <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+            <h2 class="text-4xl font-bold mb-4" data-text="welcome">Tervetuloa Tornion Vannefixaukseen!</h2>
+            <p class="text-xl mb-6" data-text="hero-desc">Laadukkaat rengas- ja autopalvelut Tornion alueella. Nopea ja luotettava palvelu.</p>
+            <a href="tel:+358407571541" class="bg-green-500 px-6 py-3 rounded hover:bg-green-600" data-text="call">Soita nyt</a>
+            <a href="https://wa.me/358407571541" class="bg-blue-500 px-6 py-3 rounded ml-4 hover:bg-blue-600" data-text="whatsapp">WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Palvelut Section -->
+    <section id="palvelut" class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold mb-8 text-center" data-text="services">Palvelumme</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="tires">Rengastyöt</h3>
+                <p data-text="tires-desc">(vaihdot, tasapainotukset, paikkaukset)</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="rim-straight">Vanteiden oikaisut</h3>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="rim-weld">Vanteiden hitsaukset</h3>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="alignment">4-pyörämittaukset ja suuntaus</h3>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="ac">Ilmastointihuollot</h3>
+                <p data-text="ac-desc">(R134a & R1234yf)</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="sales">Rengasmyynti ja vannemyynti</h3>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="repairs">Autonkorjaukset ja huollot</h3>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="aluweld">Alumiinihitsaukset</h3>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-2" data-text="codes">Vikakoodien luku ja kuittaus</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Esimerkkihinnat Section -->
+    <section id="hinnat" class="bg-gray-200 py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center" data-text="prices">Esimerkkihinnat</h2>
+            <ul class="list-disc pl-8 space-y-4">
+                <li data-text="price1">Rengasvaihto: 50€</li>
+                <li data-text="price2">Tasapainotus: 20€/rengas</li>
+                <li data-text="price3">Vanteiden oikaisu: alkaen 80€</li>
+                <li data-text="price4">Ilmastointihuolto: 100€</li>
+                <li data-text="price5">4-pyöräsuuntaus: 90€</li>
+            </ul>
+            <p class="mt-4 text-center" data-text="price-note">Hinnat ovat esimerkkejä. Lopullinen hinta sovitaan tapauskohtaisesti.</p>
+        </div>
+    </section>
+
+    <!-- Asiakasarviot Section -->
+    <section id="arviot" class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold mb-8 text-center" data-text="reviews">Asiakasarviot</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded shadow">
+                <p class="mb-2" data-text="review1">"Erinomainen palvelu! Nopea rengasvaihto ja ystävällinen henkilökunta."</p>
+                <p class="text-right font-semibold">- Maija M.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <p class="mb-2" data-text="review2">"Vanteiden hitsaus onnistui täydellisesti. Suosittelen!"</p>
+                <p class="text-right font-semibold">- Pekka P.</p>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <p class="mb-2" data-text="review3">"Ilmastointi toimii nyt paremmin kuin koskaan. Kiitos!"</p>
+                <p class="text-right font-semibold">- Anna A.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- UKK Section -->
+    <section id="ukk" class="bg-gray-200 py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center" data-text="faq">Usein kysytyt kysymykset</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded shadow">
+                    <button class="w-full text-left p-4 font-semibold flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                        <span data-text="faq1-q">Mitä palveluita tarjoatte?</span>
+                        <span>+</span>
+                    </button>
+                    <div class="p-4 hidden" data-text="faq1-a">Tarjoamme rengastöitä, vanteiden korjauksia, ilmastointihuoltoja, autonkorjauksia ja paljon muuta.</div>
+                </div>
+                <div class="bg-white rounded shadow">
+                    <button class="w-full text-left p-4 font-semibold flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                        <span data-text="faq2-q">Milloin olette auki?</span>
+                        <span>+</span>
+                    </button>
+                    <div class="p-4 hidden" data-text="faq2-a">Aukioloajat sopimuksen mukaan. Ota yhteyttä puhelimitse tai WhatsAppilla.</div>
+                </div>
+                <div class="bg-white rounded shadow">
+                    <button class="w-full text-left p-4 font-semibold flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                        <span data-text="faq3-q">Missä sijaitsette?</span>
+                        <span>+</span>
+                    </button>
+                    <div class="p-4 hidden" data-text="faq3-a">Tornion alueella, lähellä Suomen ja Ruotsin rajaa.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yhteystiedot Section -->
+    <section id="yhteystiedot" class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold mb-8 text-center" data-text="contact">Yhteystiedot</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <p class="mb-2"><strong data-text="phone">Puhelin & WhatsApp:</strong> +358 40 757 1541</p>
+                <p class="mb-2"><strong data-text="email">Sähköposti:</strong> tornionvannefixaus@gmail.com</p>
+                <p class="mb-2"><strong data-text="hours">Aukioloajat:</strong> <span data-text="hours-desc">Sopimuksen mukaan</span></p>
+                <p><strong data-text="location">Sijainti:</strong> <span data-text="location-desc">Tornion alue, Suomen ja Ruotsin rajan läheisyys</span></p>
+            </div>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15589.661759779528!2d24.146!3d65.848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46800e1b0b0b0b0b%3A0x0!2sTornio%2C%20Finland!5e0!3m2!1sen!2sfi!4v1693560000000!5m2!1sen!2sfi" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Fixed Bar -->
+    <div class="fixed bottom-0 left-0 w-full bg-blue-600 text-white flex justify-around py-2 md:hidden z-20">
+        <a href="tel:+358407571541" class="flex items-center" data-text="call">Soita</a>
+        <a href="https://wa.me/358407571541" class="flex items-center" data-text="whatsapp">WhatsApp</a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const texts = {
+            fi: {
+                name: 'Tornion Vannefixaus',
+                welcome: 'Tervetuloa Tornion Vannefixaukseen!',
+                'hero-desc': 'Laadukkaat rengas- ja autopalvelut Tornion alueella. Nopea ja luotettava palvelu.',
+                call: 'Soita nyt',
+                whatsapp: 'WhatsApp',
+                services: 'Palvelumme',
+                tires: 'Rengastyöt',
+                'tires-desc': '(vaihdot, tasapainotukset, paikkaukset)',
+                'rim-straight': 'Vanteiden oikaisut',
+                'rim-weld': 'Vanteiden hitsaukset',
+                alignment: '4-pyörämittaukset ja suuntaus',
+                ac: 'Ilmastointihuollot',
+                'ac-desc': '(R134a & R1234yf)',
+                sales: 'Rengasmyynti ja vannemyynti',
+                repairs: 'Autonkorjaukset ja huollot',
+                aluweld: 'Alumiinihitsaukset',
+                codes: 'Vikakoodien luku ja kuittaus',
+                prices: 'Esimerkkihinnat',
+                price1: 'Rengasvaihto: 50€',
+                price2: 'Tasapainotus: 20€/rengas',
+                price3: 'Vanteiden oikaisu: alkaen 80€',
+                price4: 'Ilmastointihuolto: 100€',
+                price5: '4-pyöräsuuntaus: 90€',
+                'price-note': 'Hinnat ovat esimerkkejä. Lopullinen hinta sovitaan tapauskohtaisesti.',
+                reviews: 'Asiakasarviot',
+                review1: '"Erinomainen palvelu! Nopea rengasvaihto ja ystävällinen henkilökunta."',
+                review2: '"Vanteiden hitsaus onnistui täydellisesti. Suosittelen!"',
+                review3: '"Ilmastointi toimii nyt paremmin kuin koskaan. Kiitos!"',
+                faq: 'Usein kysytyt kysymykset',
+                'faq1-q': 'Mitä palveluita tarjoatte?',
+                'faq1-a': 'Tarjoamme rengastöitä, vanteiden korjauksia, ilmastointihuoltoja, autonkorjauksia ja paljon muuta.',
+                'faq2-q': 'Milloin olette auki?',
+                'faq2-a': 'Aukioloajat sopimuksen mukaan. Ota yhteyttä puhelimitse tai WhatsAppilla.',
+                'faq3-q': 'Missä sijaitsette?',
+                'faq3-a': 'Tornion alueella, lähellä Suomen ja Ruotsin rajaa.',
+                contact: 'Yhteystiedot',
+                phone: 'Puhelin & WhatsApp',
+                email: 'Sähköposti',
+                hours: 'Aukioloajat',
+                'hours-desc': 'Sopimuksen mukaan',
+                location: 'Sijainti',
+                'location-desc': 'Tornion alue, Suomen ja Ruotsin rajan läheisyys'
+            },
+            sv: {
+                name: 'Tornion Vannefixaus',
+                welcome: 'Välkommen till Tornion Vannefixaus!',
+                'hero-desc': 'Kvalitets däck- och biltjänster i Tornio-området. Snabb och pålitlig service.',
+                call: 'Ring nu',
+                whatsapp: 'WhatsApp',
+                services: 'Våra tjänster',
+                tires: 'Däckarbeten',
+                'tires-desc': '(byte, balansering, lagning)',
+                'rim-straight': 'Fälgriktning',
+                'rim-weld': 'Fälgsvetsning',
+                alignment: '4-hjulsmätning och inriktning',
+                ac: 'Luftkonditioneringsservice',
+                'ac-desc': '(R134a & R1234yf)',
+                sales: 'Däckförsäljning och fälgförsäljning',
+                repairs: 'Bilreparationer och service',
+                aluweld: 'Aluminiumsvetsning',
+                codes: 'Felkodsläsning och radering',
+                prices: 'Exempelpriser',
+                price1: 'Däckbyte: 50€',
+                price2: 'Balansering: 20€/däck',
+                price3: 'Fälgriktning: från 80€',
+                price4: 'Luftkonditioneringsservice: 100€',
+                price5: '4-hjulinriktning: 90€',
+                'price-note': 'Priserna är exempel. Slutligt pris avtalas från fall till fall.',
+                reviews: 'Kundrecensioner',
+                review1: '"Utmärkt service! Snabbt däckbyte och vänlig personal."',
+                review2: '"Fälgsvetsning lyckades perfekt. Rekommenderar!"',
+                review3: '"Luftkonditioneringen fungerar nu bättre än någonsin. Tack!"',
+                faq: 'Vanliga frågor',
+                'faq1-q': 'Vilka tjänster erbjuder ni?',
+                'faq1-a': 'Vi erbjuder däckarbeten, fälgreparationer, luftkonditioneringsservice, bilreparationer och mycket mer.',
+                'faq2-q': 'När är ni öppna?',
+                'faq2-a': 'Öppettider enligt överenskommelse. Kontakta via telefon eller WhatsApp.',
+                'faq3-q': 'Var ligger ni?',
+                'faq3-a': 'I Tornio-området, nära gränsen mellan Finland och Sverige.',
+                contact: 'Kontaktuppgifter',
+                phone: 'Telefon & WhatsApp',
+                email: 'E-post',
+                hours: 'Öppettider',
+                'hours-desc': 'Enligt överenskommelse',
+                location: 'Plats',
+                'location-desc': 'Tornio-området, nära gränsen mellan Finland och Sverige'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-text]').forEach(el => {
+                const key = el.getAttribute('data-text');
+                el.textContent = texts[lang][key];
+            });
+            document.documentElement.lang = lang === 'fi' ? 'fi' : 'sv';
+        }
+
+        document.getElementById('lang-fi').addEventListener('click', () => changeLanguage('fi'));
+        document.getElementById('lang-sv').addEventListener('click', () => changeLanguage('sv'));
+
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('animate-slide-in');
+        });
+    </script>
+    <style>
+        @keyframes slide-in {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        .animate-slide-in { animation: slide-in 0.3s ease-out; }
+    </style>
+</body>
+</html>
