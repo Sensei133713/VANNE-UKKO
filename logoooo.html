@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tornion Vannefixaus - Logo-muunnin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #1e40af;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .logo-box {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+        .logo-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1e40af;
+        }
+        .logo-preview {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .instructions {
+            background: #e8f4fc;
+            border-left: 4px solid #1e40af;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        .btn {
+            display: inline-block;
+            background: #1e40af;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #3b82f6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .svg-logo {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+        .svg-tornion {
+            font-size: 24px;
+            fill: #1e40af;
+        }
+        .svg-vannefi {
+            font-size: 28px;
+            fill: #ef4444;
+        }
+        .svg-aus {
+            font-size: 24px;
+            fill: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tornion Vannefixaus - Logo-muunnin</h1>
+    
+    <div class="container">
+        <p>Tällä sivulla on kaikki tarvitsemasi logotiedostot verkkosivustollesi. Alla näet esikatselun logostasi sekä SVG-version että faviconin.</p>
+        
+        <div class="instructions">
+            <p><i class="fas fa-info-circle"></i> <strong>Ohjeet:</strong> Voit ladata SVG-version logostasi alla olevasta painikkeesta tai kopioida koodin suoraan. Faviconin voit ladata ja nimetä tiedostoksi "favicon.ico".</p>
+        </div>
+        
+        <div class="logo-container">
+            <div class="logo-box">
+                <div class="logo-title">SVG Logo</div>
+                <div class="logo-preview">
+                    <svg width="200" height="100" viewBox="0 0 200 100" class="svg-logo">
+                        <text x="100" y="30" text-anchor="middle" class="svg-tornion">TORNION</text>
+                        <text x="100" y="65" text-anchor="middle" class="svg-vannefi">VANNEFI</text>
+                        <text x="100" y="95" text-anchor="middle" class="svg-aus">AUS</text>
+                    </svg>
+                </div>
+                <p>SVG-kuva skaalautuu täydellisesti mihin kokoon tahansa</p>
+                <a href="#" class="btn" id="downloadSvg">Lataa SVG</a>
+                <a href="#" class="btn" id="copySvgCode">Kopioi koodi</a>
+            </div>
+            
+            <div class="logo-box">
+                <div class="logo-title">Favicon</div>
+                <div class="logo-preview">
+                    <svg width="64" height="64" viewBox="0 0 64 64">
+                        <circle cx="32" cy="32" r="30" fill="#1e40af" />
+                        <text x="32" y="25" text-anchor="middle" fill="white" font-size="10" font-weight="bold">TORNION</text>
+                        <text x="32" y="40" text-anchor="middle" fill="white" font-size="12" font-weight="bold">VANNEFI</text>
+                        <text x="32" y="55" text-anchor="middle" fill="white" font-size="10" font-weight="bold">AUS</text>
+                    </svg>
+                </div>
+                <p>Favicon näkyy selaimen välilehdessä ja kirjanmerkeissä</p>
+                <a href="#" class="btn" id="downloadFavicon">Lataa Favicon</a>
+            </div>
+        </div>
+        
+        <h2>SVG-koodi</h2>
+        <p>Voit kopioida alla olevan koodin ja liittää sen suoraan verkkosivustosi HTML:ään:</p>
+        
+        <div class="code-block" id="svgCode">
+&lt;svg width="200" height="100" viewBox="0 0 200 100" style="font-family: Arial, sans-serif; font-weight: bold;"&gt;
+  &lt;text x="100" y="30" text-anchor="middle" style="font-size: 24px; fill: #1e40af;"&gt;TORNION&lt;/text&gt;
+  &lt;text x="100" y="65" text-anchor="middle" style="font-size: 28px; fill: #ef4444;"&gt;VANNEFI&lt;/text&gt;
+  &lt;text x="100" y="95" text-anchor="middle" style="font-size: 24px; fill: #1e40af;"&gt;AUS&lt;/text&gt;
+&lt;/svg&gt;
+        </div>
+        
+        <h2>Kuinka käyttää näitä tiedostoja</h2>
+        <h3>SVG-logojen käyttö</h3>
+        <p>1. Lisää SVG-koodi suoraan HTML-tiedostoosi haluttuun paikkaan</p>
+        <p>2. Tai tallenna SVG tiedostona (esim. logo.svg) ja käytä sitä kuvana:</p>
+        <div class="code-block">
+&lt;img src="logo.svg" alt="Tornion Vannefixaus"&gt;
+        </div>
+        
+        <h3>Faviconin käyttö</h3>
+        <p>1. Lataa favicon alla olevasta painikkeesta</p>
+        <p>2. Nimeä tiedosto nimelle <strong>favicon.ico</strong></p>
+        <p>3. Lisää seuraava koodi HTML-tiedostosi &lt;head&gt;-osion sisälle:</p>
+        <div class="code-block">
+&lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Tornion Vannefixaus &copy; 2023</p>
+    </div>
+
+    <script>
+        // Lataa SVG
+        document.getElementById('downloadSvg').addEventListener('click', function() {
+            const svgCode = `<?xml version="1.0" encoding="utf-8"?>
+<svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+  <text x="100" y="30" text-anchor="middle" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 24px; fill: #1e40af;">TORNION</text>
+  <text x="100" y="65" text-anchor="middle" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 28px; fill: #ef4444;">VANNEFI</text>
+  <text x="100" y="95" text-anchor="middle" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 24px; fill: #1e40af;">AUS</text>
+</svg>`;
+            
+            const blob = new Blob([svgCode], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'tornion-vannefixaus-logo.svg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+        
+        // Kopioi SVG-koodi
+        document.getElementById('copySvgCode').addEventListener('click', function() {
+            const code = document.getElementById('svgCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('SVG-koodi kopioitu leikepöydälle!');
+            });
+        });
+        
+        // Lataa favicon
+        document.getElementById('downloadFavicon').addEventListener('click', function() {
+            // Luodaan favicon SVG-muodossa (oikeassa käytössä kannattaa muuntaa ICO-muotoon)
+            const svgCode = `<?xml version="1.0" encoding="utf-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="30" fill="#1e40af"/>
+  <text x="32" y="25" text-anchor="middle" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 10px; fill: white;">TORNION</text>
+  <text x="32" y="40" text-anchor="middle" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 12px; fill: white;">VANNEFI</text>
+  <text x="32" y="55" text-anchor="middle" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 10px; fill: white;">AUS</text>
+</svg>`;
+            
+            const blob = new Blob([svgCode], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'tornion-vannefixaus-favicon.svg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert('Huom: Lataamasi favicon on SVG-muodossa. Suosittelemme muuntamaan sen ICO-muotoon erityisillä työkaluilla (esim. convertio.co, icoconverter.com) paremman yhteensopivuuden saavuttamiseksi.');
+        });
+    </script>
+</body>
+</html>
