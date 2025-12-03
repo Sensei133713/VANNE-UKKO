@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rengas- ja autopalvelu Sailamaa – Renkaat, Vanteet, Autohuollot, Ilmastointihuollot</title>
+  <meta name="description" content="Rengas- ja autopalvelu Sailamaa – rengas- ja vannemyynti, vanteiden oikaisu ja hitsaus, autohuollot, katsastuskorjaukset, ilmastointihuollot (R134a & R1234yf), nelipyöräsuuntaus. Alavojakkala, Tornio. Auki sopimuksen mukaan." />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#1a365d"/>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rengas- ja autopalvelu Sailamaa" />
+  <meta property="og:description" content="Kattavat rengas- ja autopalvelut Alavojakkala, Tornio. Renkaiden myynti, vanteiden oikaisu, autohuollot, ilmastointihuollot." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://esimerkki.fi/" />
+  <meta property="og:image" content="logo.svg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    
+    :root {
+      --primary-color: #1e40af;
+      --secondary-color: #0f766e;
+      --accent-color: #d97706;
+      --dark-bg: #0f172a;
+      --light-text: #f8fafc;
+      --dark-text: #1e293b;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--light-text);
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* Enhanced background with gradient and image overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: 
+        linear-gradient(135deg, 
+          rgba(15, 23, 42, 0.95) 0%,
+          rgba(30, 64, 175, 0.7) 50%,
+          rgba(15, 118, 110, 0.7) 100%
+        ),
+        url('https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: filter 0.8s ease, transform 0.8s ease;
+      filter: brightness(1) contrast(1);
+      transform: scale(1);
+    }
+    
+    /* Parallax effect on scroll */
+    .parallax-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(30, 64, 175, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(15, 118, 110, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(217, 119, 6, 0.2) 0%, transparent 50%);
+      opacity: 0.8;
+      transition: opacity 0.5s ease;
+    }
+    
+    /* Dynamic color shift on scroll */
+    .scroll-color-shift {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(
+        to bottom,
+        rgba(30, 64, 175, 0.3) 0%,
+        rgba(15, 118, 110, 0.4) 50%,
+        rgba(217, 119, 6, 0.3) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    /* Enhanced glass effect for better readability */
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+    .glass-border {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Text contrast improvements */
+    .text-contrast {
+      color: var(--light-text);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .text-contrast-dark {
+      color: var(--dark-text);
+    }
+    
+    /* Section backgrounds with better contrast */
+    .section-bg {
+      background: rgba(15, 23, 42, 0.7);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Enhanced buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    /* Card styling */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    html { scroll-behavior: smooth; }
+    .safe-bottom { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem); }
+    
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.8);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+      border-radius: 5px;
+    }
+    
+    /* Animation classes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    /* Text readability classes */
+    .text-readable {
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    
+    .heading-glow {
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+  </style>
+
+  <!-- JSON-LD LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Rengas- ja autopalvelu Sailamaa",
+    "image": "https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1600&auto=format&fit=crop",
+    "description": "Rengas- ja vannemyynti, vanteiden oikaisut ja hitsaukset, autojen huollot, katsastuskorjaukset, ilmastointihuollot (R134a & R1234yf), nelipyöräsuuntaus, vikakoodien luku.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Alavojakkala",
+      "addressLocality": "Tornio",
+      "addressCountry": "FI"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 65.8476,
+      "longitude": 24.1440
+    },
+    "telephone": "+358 40 757 1541",
+    "openingHours": ["ByAppointment"],
+    "priceRange": "€€",
+    "url": "https://esimerkki.fi/",
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 65.8476,
+        "longitude": 24.1440
+      },
+      "geoRadius": "20000"
+    }
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="apple-touch-icon" href="logo.svg" />
+</head>
+<body class="antialiased">
+  <!-- Background layers -->
+  <div class="parallax-bg"></div>
+  <div class="scroll-color-shift" id="colorShift"></div>
+  
+  <!-- Mobile sticky action bar -->
+  <div class="fixed inset-x-0 bottom-0 z-50 glass border-t glass-border safe-bottom">
+    <div class="mx-auto max-w-4xl px-4 py-2 grid grid-cols-3 gap-2 text-sm font-medium">
+      <a href="tel:+358407571541" class="flex items-center justify-center gap-2 rounded-xl border glass-border px-3 py-2 bg-white/10 btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72 12.66 12.66 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.22a2 2 0 0 1 2.11-.45 12.66 12.66 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-i18n="call">Soita</span>
+      </a>
+      <a href="https://wa.me/358407571541" class="flex items-center justify-center gap-2 rounded-xl px-3 py-2 btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.62-6.003C.122 5.281 5.403 0 12.057 0c3.178 0 6.167 1.24 8.413 3.488a11.82 11.82 0 0 1 3.49 8.41c-.003 6.654-5.284 11.935-11.938 11.935a11.9 11.9 0 0 1-6.002-1.62L.057 24zM6.6 20.013c1.676.995 3.276 1.591 5.392 1.593 5.448.003 9.886-4.431 9.889-9.878.002-5.466-4.415-9.89-9.881-9.893-5.447-.003-9.886 4.431-9.889 9.878 0 2.225.651 3.891 1.746 5.457l-.999 3.648 3.742-.805zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.148-.669..149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.214 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.718 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span data-i18n="whatsapp">WhatsApp</span>
+      </a>
+      <a href="#yhteys" class="flex items-center justify-center gap-2 rounded-xl border glass-border px-3 py-2 bg-white/10 btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="directions">Ajo-ohje</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 glass border-b glass-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img src="logo.svg" alt="Rengas- ja autopalvelu Sailamaa logo" class="h-10 md:h-12 w-auto"/>
+        <div class="flex flex-col">
+          <span class="text-lg md:text-xl font-bold text-contrast">Rengas- ja autopalvelu Sailamaa</span>
+          <span class="text-xs text-white/80">Tornion seutu, Alavojakkala</span>
+        </div>
+      </a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#palvelut" class="hover:text-accent-300 transition-colors font-medium text-contrast" data-i18n="nav_services">Palvelut</a>
+        <a href="#renkaat" class="hover:text-accent-300 transition-colors font-medium text-contrast" data-i18n="nav_tires">Renkaat</a>
+        <a href="#hinnat" class="hover:text-accent-300 transition-colors font-medium text-contrast" data-i18n="nav_pricing">Hinnat</a>
+        <a href="#ukk" class="hover:text-accent-300 transition-colors font-medium text-contrast" data-i18n="nav_faq">UKK</a>
+        <a href="#yhteys" class="hover:text-accent-300 transition-colors font-medium text-contrast" data-i18n="nav_contact">Yhteys</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-2">
+        <a href="https://wa.me/358407571541" class="rounded-xl px-4 py-2 btn-primary font-semibold" data-i18n="cta_whatsapp">Varaa WhatsAppissa</a>
+        <a href="tel:+358407571541" class="rounded-xl px-4 py-2 btn-secondary font-semibold" data-i18n="cta_call">Soita</a>
+        <!-- Language switcher -->
+        <div class="ml-2 flex items-center gap-1 glass rounded-lg p-1">
+          <button id="lang-fi" class="px-2 py-1 rounded text-xs font-semibold bg-white/30 text-white">FI</button>
+          <button id="lang-sv" class="px-2 py-1 rounded text-xs font-semibold text-white/80">SV</button>
+        </div>
+      </div>
+      <button aria-label="Avaa valikko" class="md:hidden rounded-xl border glass-border p-2 bg-white/10" onclick="document.getElementById('mobileNav').classList.toggle('hidden')">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <!-- Mobile nav -->
+    <div id="mobileNav" class="md:hidden hidden border-t glass-border glass">
+      <div class="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 gap-3 text-sm">
+        <a href="#palvelut" class="rounded-xl border glass-border px-3 py-2 bg-white/10 text-contrast" onclick="this.closest('#mobileNav').classList.add('hidden')" data-i18n="nav_services">Palvelut</a>
+        <a href="#renkaat" class="rounded-xl border glass-border px-3 py-2 bg-white/10 text-contrast" onclick="this.closest('#mobileNav').classList.add('hidden')" data-i18n="nav_tires">Renkaat</a>
+        <a href="#hinnat" class="rounded-xl border glass-border px-3 py-2 bg-white/10 text-contrast" onclick="this.closest('#mobileNav').classList.add('hidden')" data-i18n="nav_pricing">Hinnat</a>
+        <a href="#ukk" class="rounded-xl border glass-border px-3 py-2 bg-white/10 text-contrast" onclick="this.closest('#mobileNav').classList.add('hidden')" data-i18n="nav_faq">UKK</a>
+        <a href="#yhteys" class="rounded-xl border glass-border px-3 py-2 bg-white/10 text-contrast" onclick="this.closest('#mobileNav').classList.add('hidden')" data-i18n="nav_contact">Yhteys</a>
+        <div class="col-span-2 flex items-center gap-2 glass rounded-xl p-2">
+          <button id="mlang-fi" class="flex-1 rounded-lg border glass-border px-3 py-2 bg-white/20 font-semibold text-contrast">FI</button>
+          <button id="mlang-sv" class="flex-1 rounded-lg border glass-border px-3 py-2 bg-white/10 text-contrast">SV</button>
+        </div>
+        <a href="https://wa.me/358407571541" class="col-span-2 rounded-xl btn-primary px-3 py-2 text-center font-semibold" data-i18n="cta_whatsapp">Varaa WhatsAppissa</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative pt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="text-contrast fade-in-up">
+          <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-balanced heading-glow" data-i18n="hero_title">Rengas- ja autopalvelu Sailamaa – Kattavat palvelut Tornion seudulla</h1>
+          <p class="mt-4 text-white/90 text-lg text-readable" data-i18n="hero_sub">Toimimme Alavojakkalan tallissa. Autan löytämään autoosi sopivat renkaat budjettisi mukaan. Mikäli sopivaa rengasta ei löydy hyllystä, tilaamme sen nopeasti – toimitusaika yleensä 2 arkipäivää.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://wa.me/358407571541" class="rounded-xl btn-primary px-5 py-3 font-semibold" data-i18n="cta_whatsapp">Varaa WhatsAppissa</a>
+            <a href="tel:+358407571541" class="rounded-xl btn-secondary px-5 py-3 font-semibold" data-i18n="cta_call">Soita nyt</a>
+          </div>
+          <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-white/90">
+            <li class="flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span><span data-i18n="hero_b1">Nopeat toimitusajat</span></li>
+            <li class="flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span><span data-i18n="hero_b2">Budjettiystävällisyys</span></li>
+            <li class="flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span><span data-i18n="hero_b3">Ammattitaito</span></li>
+            <li class="flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span><span data-i18n="hero_b4">Ilmainen neuvonta</span></li>
+          </ul>
+        </div>
+        <div class="fade-in-up" style="animation-delay: 0.2s">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden border glass-border bg-white/10">
+            <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1600&auto=format&fit=crop" alt="Rengastyöt ja autopalvelut" class="h-full w-full object-cover" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="palvelut" class="py-16 section-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl text-contrast">
+        <h2 class="text-2xl md:text-3xl font-extrabold heading-glow" data-i18n="svc_title">Palvelumme</h2>
+        <p class="mt-2 text-white/90" data-i18n="svc_sub">Kaikki autosi tarpeet saman katon alla – ammattitaitoisesti ja luotettavasti.</p>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_1_t">Renkaiden ja vanteiden myynti</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_1_d">Kesä- ja talvirenkaat sekä vanteet. Autan löytämään juuri sinulle sopivat tuotteet.</p>
+        </article>
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_2_t">Vanteiden oikaisu</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_2_d">Kieroutuneiden vanteiden ammattimainen suoristus tarkalla kalustolla.</p>
+        </article>
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_3_t">Vanteiden hitsaus</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_3_d">Haljenneiden vanteiden kestävä ja tarkka hitsaus.</p>
+        </article>
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_4_t">Nelipyöräsuuntaus</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_4_d">Tarkka 4-pyörämittaus ja suuntaus – vähentää rengaskulutusta ja parantaa ajotuntumaa.</p>
+        </article>
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_5_t">Ilmastointihuollot R134a & R1234yf</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_5_d">Täyttö, vuototesti, desinfiointi sekä letkujen, putkien ja kompressorien vaihdot.</p>
+        </article>
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_6_t">Autojen huollot</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_6_d">Määräaikais- ja vuosihuollot, öljynvaihdot, jarrut, alustatyöt.</p>
+        </article>
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_7_t">Katsastuskorjaukset</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_7_d">Kattavat korjaukset katsastusvaatimusten täyttämiseksi.</p>
+        </article>
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_8_t">Alumiinihitsaus</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_8_d">Erikoistuminen alumiiniosien hitsaukseen – vanteet ja muut komponentit.</p>
+        </article>
+        <article class="rounded-2xl border glass-border card p-5">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="svc_9_t">Vikakoodien luku</h3>
+          <p class="mt-1 text-sm text-white/80" data-i18n="svc_9_d">Tarkka diagnostiikka moderneilla testauslaitteilla.</p>
+        </article>
+      </div>
+
+      <!-- Ajanvaraus info banner -->
+      <div class="mt-10 rounded-2xl glass border glass-border p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 class="font-bold text-lg text-contrast" data-i18n="cta_fast_t">Ajanvaraus</h3>
+          <p class="text-sm text-white/90" data-i18n="cta_fast_d">Nettiajanvaraus suuntauksiin ja rengasvaihtoihin. Muissa asioissa ajanvaraus puhelimitse, WhatsAppissa tai sähköpostitse.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://wa.me/358407571541" class="rounded-xl btn-primary px-4 py-2 font-semibold" data-i18n="whatsapp">WhatsApp</a>
+          <a href="tel:+358407571541" class="rounded-xl btn-secondary px-4 py-2 font-semibold" data-i18n="call">Soita</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tires section -->
+  <section id="renkaat" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl text-contrast">
+        <h2 class="text-2xl md:text-3xl font-extrabold heading-glow" data-i18n="tires_title">Renkaat ja vanteet</h2>
+        <p class="mt-2 text-white/90" data-i18n="tires_sub">Laaja valikoima kesä- ja talvirenkaita sekä vanteita. Autan löytämään juuri sinulle sopivat tuotteet budjettisi mukaan.</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 gap-8">
+        <div class="rounded-2xl glass border glass-border p-6">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="tires_avail_title">Valikoimastamme löydät</h3>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-2">
+              <svg class="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-white/90" data-i18n="tires_avail_1">Kesärenkaat kaikille ajoneuvoille</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-white/90" data-i18n="tires_avail_2">Talvirenkaat – kitkat ja nastarenkaat</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-white/90" data-i18n="tires_avail_3">Vanteet teräs- ja alumiinimateriaaleista</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="text-white/90" data-i18n="tires_avail_4">Erikoiskoot ja -mallit tilauksesta</span>
+            </li>
+          </ul>
+        </div>
+        <div class="rounded-2xl glass border glass-border p-6">
+          <h3 class="font-bold text-lg text-contrast" data-i18n="tires_order_title">Tilauspalvelu</h3>
+          <p class="mt-3 text-white/90" data-i18n="tires_order_desc">Mikäli sopivaa rengasta ei löydy hyllystämme, tilaamme sen puolestasi nopeasti. Toimitusaika on yleensä vain 2 arkipäivää.</p>
+          <div class="mt-4 p-4 bg-white/10 rounded-lg">
+            <p class="text-sm text-white/90 font-medium" data-i18n="tires_contact">Renkaiden hintojen kyselyt:</p>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <a href="mailto:Tornionvannefixaus@gmail.com" class="text-sm text-emerald-300 font-semibold hover:underline">Sähköpostitse</a>
+              <span class="text-white/70">•</span>
+              <a href="tel:+358407571541" class="text-sm text-emerald-300 font-semibold hover:underline">Soittamalla</a>
+              <span class="text-white/70">•</span>
+              <a href="https://wa.me/358407571541" class="text-sm text-emerald-300 font-semibold hover:underline">WhatsApp-viestillä</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / highlights -->
+  <section id="hinnat" class="py-16 section-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl text-contrast">
+        <h2 class="text-2xl md:text-3xl font-extrabold heading-glow" data-i18n="price_title">Hinnat ja maksuvaihtoehdot</h2>
+        <p class="mt-2 text-white/90" data-i18n="price_sub">Selkeät hinnat ja joustavat maksutavat. Lopullinen hinta vahvistetaan aina ennen työn aloitusta.</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl glass border glass-border p-6">
+          <h3 class="font-bold text-contrast" data-i18n="price_1_t">Rengastyöt (henkilöauto)</h3>
+          <ul class="mt-3 text-sm text-white/90 space-y-2">
+            <li data-i18n="price_1_l1">Rengasvaihto + tasapainotus (4kpl): <span class="font-semibold text-emerald-300">alk. 60 €</span></li>
+            <li data-i18n="price_1_l2">Rengashotelli (kausi): <span class="font-semibold text-emerald-300">alk. 80 €</span></li>
+            <li data-i18n="price_1_l3">Rengaspaikkaus: <span class="font-semibold text-emerald-300">alk. 25 €</span></li>
+            <li data-i18n="price_1_l4">Vanteen oikaisu: <span class="font-semibold text-emerald-300">hinta tarkastuksen jälkeen</span></li>
+          </ul>
+        </div>
+        <div class="rounded-2xl glass border glass-border p-6">
+          <h3 class="font-bold text-contrast" data-i18n="price_2_t">Autopalvelut</h3>
+          <ul class="mt-3 text-sm text-white/90 space-y-2">
+            <li data-i18n="price_2_l1">4-pyöräsuuntaus: <span class="font-semibold text-emerald-300">alk. 120 €</span></li>
+            <li data-i18n="price_2_l2">Ilmastointihuolto R134a: <span class="font-semibold text-emerald-300">alk. 75 €</span></li>
+            <li data-i18n="price_2_l3">Ilmastointihuolto R1234yf: <span class="font-semibold text-emerald-300">alk. 120 €</span></li>
+            <li data-i18n="price_2_l4">Vikakoodin luku: <span class="font-semibold text-emerald-300">alk. 40 €</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Payment methods -->
+      <div class="mt-8 rounded-2xl glass border glass-border p-6">
+        <h3 class="font-bold text-contrast" data-i18n="payment_title">Maksuvaihtoehdot</h3>
+        <div class="mt-4 flex flex-wrap gap-4 items-center">
+          <div class="flex items-center gap-2">
+            <div class="w-10 h-7 bg-emerald-600 rounded flex items-center justify-center text-xs font-bold text-white">€</div>
+            <span class="text-white/90" data-i18n="payment_cash">Käteinen</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-10 h-7 bg-blue-600 rounded flex items-center justify-center text-white text-xs font-bold">VISA</div>
+            <span class="text-white/90" data-i18n="payment_card">Kortti</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-10 h-7 bg-black rounded flex items-center justify-center text-white text-xs font-bold">K</div>
+            <span class="text-white/90" data-i18n="payment_klarna">Rahoitus/Klarna</span>
+          </div>
+        </div>
+      </div>
+      
+      <p class="mt-6 text-xs text-white/70" data-i18n="price_note">Hinnat esimerkinomaisia ja voivat muuttua. Kysy tarkka tarjous WhatsAppissa, puhelimitse tai sähköpostitse.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="ukk" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl text-contrast">
+        <h2 class="text-2xl md:text-3xl font-extrabold heading-glow" data-i18n="faq_title">Usein kysytyt kysymykset</h2>
+        <p class="mt-2 text-white/90" data-i18n="faq_sub">Jos et löydä vastausta, kysy rohkeasti WhatsAppissa, puhelimitse tai sähköpostitse.</p>
+      </div>
+      <div class="mt-8 space-y-4">
+        <details class="group rounded-2xl glass border glass-border p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-contrast"> <span data-i18n="faq_q1">Miten ajan voi varata?</span>
+            <span class="ml-4 transition group-open:rotate-180 text-emerald-400">▾</span>
+          </summary>
+          <div class="mt-3 text-sm text-white/80 space-y-2">
+            <p data-i18n="faq_a1_1">Nettiajanvaraus löytyy suuntauksiin ja rengasvaihtoihin.</p>
+            <p data-i18n="faq_a1_2">Muissa asioissa ajanvaraus puhelimitse, WhatsApp-viestillä tai sähköpostitse.</p>
+            <p data-i18n="faq_a1_3">Mikäli nettiajanvarauksesta ei löydy sopivaa aikaa, ota yhteyttä niin järjestetään sopiva aika.</p>
+          </div>
+        </details>
+        <details class="group rounded-2xl glass border glass-border p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-contrast"> <span data-i18n="faq_q2">Missä sijaitsette ja miten toimitte?</span>
+            <span class="ml-4 transition group-open:rotate-180 text-emerald-400">▾</span>
+          </summary>
+          <div class="mt-3 text-sm text-white/80 space-y-2">
+            <p data-i18n="faq_a2_1">Toimitilamme sijaitsee Alavojakkalassa, Tornion seudulla.</p>
+            <p data-i18n="faq_a2_2">Toimin yksin yrityksessä, joten en välttämättä ole aina paikan päällä.</p>
+            <p data-i18n="faq_a2_3">Olethan aina yhteydessä ennen saapumista paikalle ilman sovittua aikaa.</p>
+            <p data-i18n="faq_a2_4">Aukioloajat sovitaan aina etukäteen sopimuksen mukaan.</p>
+          </div>
+        </details>
+        <details class="group rounded-2xl glass border glass-border p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-contrast"> <span data-i18n="faq_q3">Mitä maksuvaihtoehtoja tarjoatte?</span>
+            <span class="ml-4 transition group-open:rotate-180 text-emerald-400">▾</span>
+          </summary>
+          <div class="mt-3 text-sm text-white/80">
+            <p data-i18n="faq_a3">Hyväksymme käteisen, korttimaksut sekä Klarna-rahoituksen.</p>
+          </div>
+        </details>
+        <details class="group rounded-2xl glass border glass-border p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-contrast"> <span data-i18n="faq_q4">Kuinka nopeasti saatte renkaat tilauksesta?</span>
+            <span class="ml-4 transition group-open:rotate-180 text-emerald-400">▾</span>
+          </summary>
+          <div class="mt-3 text-sm text-white/80">
+            <p data-i18n="faq_a4">Yleensä 2 arkipäivää. Jos tarvitset erikoisrenkaita tai -vanteita, kysy saatavuus WhatsAppissa.</p>
+          </div>
+        </details>
+        <details class="group rounded-2xl glass border glass-border p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-contrast"> <span data-i18n="faq_q5">Onko työlle takuu?</span>
+            <span class="ml-4 transition group-open:rotate-180 text-emerald-400">▾</span>
+          </summary>
+          <div class="mt-3 text-sm text-white/80">
+            <p data-i18n="faq_a5">Kyllä, kaikille työilleni myönnän takuun. Kerron takuehdot työn aloituksen yhteydessä.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="yhteys" class="py-16 section-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-contrast heading-glow" data-i18n="contact_title">Yhteystiedot</h2>
+          <div class="mt-4 space-y-3 text-sm">
+            <p class="text-white/95"><span class="font-semibold">Rengas- ja autopalvelu Sailamaa</span><br/>Alavojakkala, Tornion seutu, Suomi</p>
+            <p class="text-white/95">Puh: <a href="tel:+358407571541" class="text-emerald-300 font-semibold hover:underline">+358 40 757 1541</a></p>
+            <p class="text-white/95">WhatsApp: <a href="https://wa.me/358407571541" class="text-emerald-300 font-semibold hover:underline">Lähetä viesti</a></p>
+            <p class="text-white/95">Sähköposti: <a href="mailto:Tornionvannefixaus@gmail.com" class="text-emerald-300 font-semibold hover:underline">Tornionvannefixaus@gmail.com</a></p>
+            <p class="text-white/95" data-i18n="contact_hours">Aukiolo: Sopimuksen mukaan</p>
+            <div class="mt-4 p-4 bg-white/10 rounded-lg">
+              <p class="text-white/95 font-medium" data-i18n="contact_note_title">Tärkeää tietää:</p>
+              <p class="text-white/90 text-sm mt-1" data-i18n="contact_note">Toimin yksin yrityksessäni. Olethan yhteydessä ennen saapumista paikalle ilman sovittua aikaa. Käynnit vain ajanvarauksella.</p>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://wa.me/358407571541" class="rounded-xl btn-primary px-4 py-2 font-semibold" data-i18n="whatsapp">Varaa WhatsAppissa</a>
+            <a href="tel:+358407571541" class="rounded-xl btn-secondary px-4 py-2 font-semibold" data-i18n="call">Soita</a>
+            <a href="https://maps.google.com/?q=Alavojakkala,+Tornio,+Finland" class="rounded-xl btn-secondary px-4 py-2 font-semibold" data-i18n="directions">Ajo-ohje</a>
+          </div>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border glass-border bg-white/10">
+            <iframe title="Kartta Rengas- ja autopalvelu Sailamaa Alavojakkala" src="https://www.google.com/maps?q=Alavojakkala,+Tornio,+Finland&output=embed" class="w-full h-80" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <p class="mt-3 text-xs text-white/70" data-i18n="map_note">Pihassa on hyvin tilaa ja helppo kääntyä peräkärryn kanssa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-white/80">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <p class="font-semibold text-white">Rengas- ja autopalvelu Sailamaa</p>
+          <p>Alavojakkala, Tornion seutu</p>
+          <p class="mt-1">© <span id="year"></span> Kaikki oikeudet pidätetään.</p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#palvelut" class="hover:text-emerald-300 transition-colors" data-i18n="nav_services">Palvelut</a>
+          <a href="#renkaat" class="hover:text-emerald-300 transition-colors" data-i18n="nav_tires">Renkaat</a>
+          <a href="#hinnat" class="hover:text-emerald-300 transition-colors" data-i18n="nav_pricing">Hinnat</a>
+          <a href="#ukk" class="hover:text-emerald-300 transition-colors" data-i18n="nav_faq">UKK</a>
+          <a href="#yhteys" class="hover:text-emerald-300 transition-colors" data-i18n="nav_contact">Yhteys</a>
+        </div>
+        <!-- Secondary language switcher in footer for convenience -->
+        <div class="flex items-center gap-2 glass rounded-lg p-1">
+          <button id="flang-fi" class="px-2 py-1 rounded text-xs font-semibold bg-white/20 text-white">FI</button>
+          <button id="flang-sv" class="px-2 py-1 rounded text-xs font-semibold text-white/80">SV</button>
+        </div>
+      </div>
+      <div class="mt-6 pt-6 border-t border-white/20 text-xs text-white/60">
+        <p data-i18n="footer_note">Kaikki hinnat alkaen-hintoja. Lopullinen hinta määräytyy auton ja työn mukaan. Hinnat voivat muuttua.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dynamic background effects on scroll
+    const colorShift = document.getElementById('colorShift');
+    const bodyBg = document.querySelector('body::before');
+    
+    // Scroll effects for background color shift and parallax
+    const updateScrollEffects = () => {
+      const doc = document.documentElement;
+      const max = (doc.scrollHeight - doc.clientHeight) || 1;
+      const scrollRatio = Math.min(1, Math.max(0, doc.scrollTop / max));
+      
+      // Color shift opacity based on scroll
+      if (colorShift) {
+        colorShift.style.opacity = scrollRatio * 0.7;
+      }
+      
+      // Parallax effect for background
+      const parallaxBg = document.querySelector('.parallax-bg');
+      if (parallaxBg) {
+        const yPos = -(doc.scrollTop * 0.3);
+        parallaxBg.style.transform = `translateY(${yPos}px)`;
+      }
+      
+      // Dynamic background brightness
+      const brightness = 1 - (scrollRatio * 0.1);
+      document.body.style.setProperty('--bg-brightness', brightness);
+      
+      // Change gradient colors based on scroll position
+      const hueShift = 200 + (scrollRatio * 160);
+      document.body.style.setProperty('--hue-shift', hueShift);
+    };
+    
+    document.addEventListener('scroll', updateScrollEffects, { passive: true });
+    updateScrollEffects();
+
+    // Optional: Change background image based on section
+    const sections = document.querySelectorAll('section');
+    const bgImages = [
+      'url("https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80")',
+      'url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80")',
+      'url("https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80")',
+      'url("https://images.unsplash.com/photo-1551524165-6b6e5a6166f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80")'
+    ];
+    
+    // Intersection Observer for section-based background changes
+    const observerOptions = {
+      threshold: 0.3
+    };
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Optional: Change background image based on visible section
+          const sectionIndex = Array.from(sections).indexOf(entry.target);
+          if (sectionIndex >= 0 && bgImages[sectionIndex]) {
+            // Smooth background transition
+            document.body.style.transition = 'background-image 1s ease';
+            // Uncomment if you want to change images per section
+            // document.body.style.backgroundImage = bgImages[sectionIndex];
+          }
+        }
+      });
+    }, observerOptions);
+    
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Scroll animation for elements
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Observe all cards and important elements
+    document.querySelectorAll('.card, .section-bg > div, #renkaat > div').forEach(el => {
+      scrollObserver.observe(el);
+    });
+
+    // i18n dictionaries (FI / SV) - Updated with new content
+    const dict = {
+      fi: {
+        tagline: 'Renkaat & autopalvelut',
+        nav_services: 'Palvelut', nav_tires: 'Renkaat', nav_pricing: 'Hinnat', nav_faq: 'UKK', nav_contact: 'Yhteys',
+        cta_whatsapp: 'Varaa WhatsAppissa', cta_call: 'Soita', call: 'Soita', whatsapp: 'WhatsApp', directions: 'Ajo-ohje',
+        hero_title: 'Rengas- ja autopalvelu Sailamaa – Kattavat palvelut Tornion seudulla',
+        hero_sub: 'Toimimme Alavojakkalan tallissa. Autan löytämään autoosi sopivat renkaat budjettisi mukaan. Mikäli sopivaa rengasta ei löydy hyllystä, tilaamme sen nopeasti – toimitusaika yleensä 2 arkipäivää.',
+        hero_b1: 'Nopeat toimitusajat', hero_b2: 'Budjettiystävällisyys', hero_b3: 'Ammattitaito', hero_b4: 'Ilmainen neuvonta',
+        svc_title: 'Palvelumme', svc_sub: 'Kaikki autosi tarpeet saman katon alla – ammattitaitoisesti ja luotettavasti.',
+        svc_1_t: 'Renkaiden ja vanteiden myynti', svc_1_d: 'Kesä- ja talvirenkaat sekä vanteet. Autan löytämään juuri sinulle sopivat tuotteet.',
+        svc_2_t: 'Vanteiden oikaisu', svc_2_d: 'Kieroutuneiden vanteiden ammattimainen suoristus tarkalla kalustolla.',
+        svc_3_t: 'Vanteiden hitsaus', svc_3_d: 'Haljenneiden vanteiden kestävä ja tarkka hitsaus.',
+        svc_4_t: 'Nelipyöräsuuntaus', svc_4_d: 'Tarkka 4-pyörämittaus ja suuntaus – vähentää rengaskulutusta ja parantaa ajotuntumaa.',
+        svc_5_t: 'Ilmastointihuollot R134a & R1234yf', svc_5_d: 'Täyttö, vuototesti, desinfiointi sekä letkujen, putkien ja kompressorien vaihdot.',
+        svc_6_t: 'Autojen huollot', svc_6_d: 'Määräaikais- ja vuosihuollot, öljynvaihdot, jarrut, alustatyöt.',
+        svc_7_t: 'Katsastuskorjaukset', svc_7_d: 'Kattavat korjaukset katsastusvaatimusten täyttämiseksi.',
+        svc_8_t: 'Alumiinihitsaus', svc_8_d: 'Erikoistuminen alumiiniosien hitsaukseen – vanteet ja muut komponentit.',
+        svc_9_t: 'Vikakoodien luku', svc_9_d: 'Tarkka diagnostiikka moderneilla testauslaitteilla.',
+        cta_fast_t: 'Ajanvaraus', cta_fast_d: 'Nettiajanvaraus suuntauksiin ja rengasvaihtoihin. Muissa asioissa ajanvaraus puhelimitse, WhatsAppissa tai sähköpostitse.',
+        tires_title: 'Renkaat ja vanteet', tires_sub: 'Laaja valikoima kesä- ja talvirenkaita sekä vanteita. Autan löytämään juuri sinulle sopivat tuotteet budjettisi mukaan.',
+        tires_avail_title: 'Valikoimastamme löydät', tires_avail_1: 'Kesärenkaat kaikille ajoneuvoille',
+        tires_avail_2: 'Talvirenkaat – kitkat ja nastarenkaat', tires_avail_3: 'Vanteet teräs- ja alumiinimateriaaleista',
+        tires_avail_4: 'Erikoiskoot ja -mallit tilauksesta', tires_order_title: 'Tilauspalvelu',
+        tires_order_desc: 'Mikäli sopivaa rengasta ei löydy hyllystämme, tilaamme sen puolestasi nopeasti. Toimitusaika on yleensä vain 2 arkipäivää.',
+        tires_contact: 'Renkaiden hintojen kyselyt:', 
+        price_title: 'Hinnat ja maksuvaihtoehdot', price_sub: 'Selkeät hinnat ja joustavat maksutavat. Lopullinen hinta vahvistetaan aina ennen työn aloitusta.',
+        price_1_t: 'Rengastyöt (henkilöauto)', price_1_l1: 'Rengasvaihto + tasapainotus (4kpl): alk. 60 €', price_1_l2: 'Rengashotelli (kausi): alk. 80 €', 
+        price_1_l3: 'Rengaspaikkaus: alk. 25 €', price_1_l4: 'Vanteen oikaisu: hinta tarkastuksen jälkeen',
+        price_2_t: 'Autopalvelut', price_2_l1: '4-pyöräsuuntaus: alk. 120 €', price_2_l2: 'Ilmastointihuolto R134a: alk. 75 €', 
+        price_2_l3: 'Ilmastointihuolto R1234yf: alk. 120 €', price_2_l4: 'Vikakoodin luku: alk. 40 €',
+        price_note: 'Hinnat esimerkinomaisia ja voivat muuttua. Kysy tarkka tarjous WhatsAppissa, puhelimitse tai sähköpostitse.',
+        payment_title: 'Maksuvaihtoehdot', payment_cash: 'Käteinen', payment_card: 'Kortti', payment_klarna: 'Rahoitus/Klarna',
+        faq_title: 'Usein kysytyt kysymykset', faq_sub: 'Jos et löydä vastausta, kysy rohkeasti WhatsAppissa, puhelimitse tai sähköpostitse.',
+        faq_q1: 'Miten ajan voi varata?', 
+        faq_a1_1: 'Nettiajanvaraus löytyy suuntauksiin ja rengasvaihtoihin.',
+        faq_a1_2: 'Muissa asioissa ajanvaraus puhelimitse, WhatsApp-viestillä tai sähköpostitse.',
+        faq_a1_3: 'Mikäli nettiajanvarauksesta ei löydy sopivaa aikaa, ota yhteyttä niin järjestetään sopiva aika.',
+        faq_q2: 'Missä sijaitsette ja miten toimitte?',
+        faq_a2_1: 'Toimitilamme sijaitsee Alavojakkalassa, Tornion seudulla.',
+        faq_a2_2: 'Toimin yksin yrityksessä, joten en välttämättä ole aina paikan päällä.',
+        faq_a2_3: 'Olethan aina yhteydessä ennen saapumista paikalle ilman sovittua aikaa.',
+        faq_a2_4: 'Aukioloajat sovitaan aina etukäteen sopimuksen mukaan.',
+        faq_q3: 'Mitä maksuvaihtoehtoja tarjoatte?',
+        faq_a3: 'Hyväksymme käteisen, korttimaksut sekä Klarna-rahoituksen.',
+        faq_q4: 'Kuinka nopeasti saatte renkaat tilauksesta?',
+        faq_a4: 'Yleensä 2 arkipäivää. Jos tarvitset erikoisrenkaita tai -vanteita, kysy saatavuus WhatsAppissa.',
+        faq_q5: 'Onko työlle takuu?',
+        faq_a5: 'Kyllä, kaikille työilleni myönnän takuun. Kerron takuehdot työn aloituksen yhteydessä.',
+        contact_title: 'Yhteystiedot', contact_hours: 'Aukiolo: Sopimuksen mukaan',
+        contact_note_title: 'Tärkeää tietää:', 
+        contact_note: 'Toimin yksin yrityksessäni. Olethan yhteydessä ennen saapumista paikalle ilman sovittua aikaa. Käynnit vain ajanvarauksella.',
+        map_note: 'Pihassa on hyvin tilaa ja helppo kääntyä peräkärryn kanssa.',
+        footer_note: 'Kaikki hinnat alkaen-hintoja. Lopullinen hinta määräytyy auton ja työn mukaan. Hinnat voivat muuttua.'
+      },
+      sv: {
+        tagline: 'Däck och bilservice',
+        nav_services: 'Tjänster', nav_tires: 'Däck', nav_pricing: 'Priser', nav_faq: 'FAQ', nav_contact: 'Kontakt',
+        cta_whatsapp: 'Boka via WhatsApp', cta_call: 'Ring', call: 'Ring', whatsapp: 'WhatsApp', directions: 'Vägbeskrivning',
+        hero_title: 'Däck- och bilservice Sailamaa – Omfattande tjänster i Torneåregionen',
+        hero_sub: 'Vi verkar från en verkstad i Nedervojakkala. Jag hjälper dig hitta rätt däck för din bil enligt din budget. Om rätt däck inte finns i lager, beställer vi det snabbt – leveranstid vanligtvis 2 arbetsdagar.',
+        hero_b1: 'Snabba leveranstider', hero_b2: 'Budgetvänlighet', hero_b3: 'Yrkesskicklighet', hero_b4: 'Gratis rådgivning',
+        svc_title: 'Våra tjänster', svc_sub: 'Alla dina bilbehov under samma tak – professionellt och pålitligt.',
+        svc_1_t: 'Försäljning av däck och fälgar', svc_1_d: 'Sommar- och vinterdäck samt fälgar. Jag hjälper dig hitta produkter som passar just dig.',
+        svc_2_t: 'Rätning av fälgar', svc_2_d: 'Professionell rätning av skeva fälgar med precisionsutrustning.',
+        svc_3_t: 'Svetsning av fälgar', svc_3_d: 'Hållbar och noggrann svetsning av spruckna fälgar.',
+        svc_4_t: 'Fyrhjulsinställning', svc_4_d: 'Exakt 4-hjulsmätning och inställning – minskar däckslitage och förbättrar körupplevelsen.',
+        svc_5_t: 'AC-service R134a & R1234yf', svc_5_d: 'Påfyllning, läcktest, desinfektion samt byte av slangar, rör och kompressorer.',
+        svc_6_t: 'Bilservice', svc_6_d: 'Regelbunden och årsvis service, oljebyten, bromsar, chassiarbeten.',
+        svc_7_t: 'Besiktningsreparationer', svc_7_d: 'Omfattande reparationer för att uppfylla besiktningskraven.',
+        svc_8_t: 'Aluminiumsvejsning', svc_8_d: 'Specialisering på svetsning av aluminiumdelar – fälgar och andra komponenter.',
+        svc_9_t: 'Felkodsläsning', svc_9_d: 'Exakt diagnostik med moderna testutrustningar.',
+        cta_fast_t: 'Tidsbokning', cta_fast_d: 'Nätbokning för hjulinställningar och däckbyten. För andra ärenden, boka tid via telefon, WhatsApp eller e-post.',
+        tires_title: 'Däck och fälgar', tires_sub: 'Stort urval av sommar- och vinterdäck samt fälgar. Jag hjälper dig hitta produkter som passar just dig enligt din budget.',
+        tires_avail_title: 'I vårt sortiment hittar du', tires_avail_1: 'Somrardäck för alla fordon',
+        tires_avail_2: 'Vinterdäck – friktionsdäck och dubbdäck', tires_avail_3: 'Fälgar i stål- och aluminiummaterial',
+        tires_avail_4: 'Specialstorlekar och -modeller på beställning', tires_order_title: 'Beställningstjänst',
+        tires_order_desc: 'Om rätt däck inte finns i vårt lager, beställer vi det åt dig snabbt. Leveranstiden är vanligtvis bara 2 arbetsdagar.',
+        tires_contact: 'Förfrågningar om däckpriser:', 
+        price_title: 'Priser och betalningsalternativ', price_sub: 'Tydliga priser och flexibla betalningssätt. Slutligt pris bekräftas alltid innan arbetet börjar.',
+        price_1_t: 'Däcktjänster (personbil)', price_1_l1: 'Däckbyte + balansering (4st): fr. 60 €', price_1_l2: 'Däckhotell (säsong): fr. 80 €', 
+        price_1_l3: 'Däcklagning: fr. 25 €', price_1_l4: 'Fälgrätning: pris efter inspektion',
+        price_2_t: 'Biltjänster', price_2_l1: '4-hjulinställning: fr. 120 €', price_2_l2: 'AC-service R134a: fr. 75 €', 
+        price_2_l3: 'AC-service R1234yf: fr. 120 €', price_2_l4: 'Felkodsläsning: fr. 40 €',
+        price_note: 'Priserna är exempel och kan ändras. Be om exakt offert via WhatsApp, telefon eller e-post.',
+        payment_title: 'Betalningsalternativ', payment_cash: 'Kontant', payment_card: 'Kort', payment_klarna: 'Finansiering/Klarna',
+        faq_title: 'Vanliga frågor', faq_sub: 'Om du inte hittar svar, fråga fritt via WhatsApp, telefon eller e-post.',
+        faq_q1: 'Hur bokar jag tid?', 
+        faq_a1_1: 'Nätbokning finns för hjulinställningar och däckbyten.',
+        faq_a1_2: 'För andra ärenden, boka tid via telefon, WhatsApp-meddelande eller e-post.',
+        faq_a1_3: 'Om du inte hittar en lämplig tid via nätbokningen, kontakta oss så ordnar vi en passande tid.',
+        faq_q2: 'Var finns ni och hur fungerar det?',
+        faq_a2_1: 'Våra lokaler ligger i Nedervojakkala, i Torneåregionen.',
+        faq_a2_2: 'Jag arbetar ensam i företaget, så jag är inte alltid på plats.',
+        faq_a2_3: 'Var alltid i kontakt innan du anländer på plats utan överenskommet möte.',
+        faq_a2_4: 'Öppettider avtalas alltid i förväg enligt överenskommelse.',
+        faq_q3: 'Vilka betalningsalternativ erbjuder ni?',
+        faq_a3: 'Vi accepterar kontanter, kortbetalningar och Klarna-finansiering.',
+        faq_q4: 'Hur snabbt får ni däck på beställning?',
+        faq_a4: 'Vanligtvis 2 arbetsdagar. Om du behöver specialdäck eller -fälgar, fråga tillgänglighet via WhatsApp.',
+        faq_q5: 'Har arbetet garanti?',
+        faq_a5: 'Ja, jag ger garanti på alla mina arbeten. Jag informerar om garantivillkoren när arbetet börjar.',
+        contact_title: 'Kontaktuppgifter', contact_hours: 'Öppettider: Enligt överenskommelse',
+        contact_note_title: 'Viktigt att veta:', 
+        contact_note: 'Jag arbetar ensam i mitt företag. Var alltid i kontakt innan du anländer på plats utan överenskommet möte. Besök endast efter tidsbokning.',
+        map_note: 'På gården finns gott om plats och det är lätt att svänga med släp.',
+        footer_note: 'Alla priser är från-priser. Slutligt pris bestäms av bilen och arbetet. Priser kan ändras.'
+      }
+    };
+
+    // Apply translations
+    function setLang(lang){
+      const strings = dict[lang] || dict.fi;
+      document.documentElement.lang = lang === 'sv' ? 'sv' : 'fi';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(strings[key]) el.textContent = strings[key];
+      });
+      // Active button styles
+      const toggle = (a,b)=>{ 
+        a.classList.add('bg-white/30', 'text-white'); 
+        a.classList.remove('text-white/80');
+        b.classList.remove('bg-white/30', 'text-white');
+        b.classList.add('text-white/80');
+      };
+      if(document.getElementById('lang-fi')){
+        if(lang==='sv'){ toggle(document.getElementById('lang-sv'), document.getElementById('lang-fi')); }
+        else { toggle(document.getElementById('lang-fi'), document.getElementById('lang-sv')); }
+      }
+      if(document.getElementById('mlang-fi')){
+        if(lang==='sv'){ toggle(document.getElementById('mlang-sv'), document.getElementById('mlang-fi')); }
+        else { toggle(document.getElementById('mlang-fi'), document.getElementById('mlang-sv')); }
+      }
+      if(document.getElementById('flang-fi')){
+        if(lang==='sv'){ toggle(document.getElementById('flang-sv'), document.getElementById('flang-fi')); }
+        else { toggle(document.getElementById('flang-fi'), document.getElementById('flang-sv')); }
+      }
+      localStorage.setItem('site_lang', lang);
+    }
+
+    // Bind buttons
+    [['lang-fi','fi'], ['lang-sv','sv'], ['mlang-fi','fi'], ['mlang-sv','sv'], ['flang-fi','fi'], ['flang-sv','sv']].forEach(([id,lang])=>{
+      const btn = document.getElementById(id);
+      if(btn) btn.addEventListener('click', ()=> setLang(lang));
+    });
+
+    // Init language from storage or browser
+    const initLang = localStorage.getItem('site_lang') || (navigator.language && navigator.language.startsWith('sv') ? 'sv' : 'fi');
+    setLang(initLang);
+  </script>
+</body>
+</html>
